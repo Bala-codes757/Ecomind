@@ -1,0 +1,6 @@
+{
+  "name": "EcoMind",
+  "description": "AI-powered facility scorecard for energy, water, and waste, built from utility bills and meter records.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

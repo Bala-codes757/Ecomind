@@ -7,9 +7,11 @@ const router = express.Router();
 router.get('/', (req, res, next) => {
   try {
     const recs = db.get('recommendations');
+    const plans = db.get('action_plans');
     res.json({
       success: true,
-      recommendations: recs
+      recommendations: recs,
+      actionPlans: plans
     });
   } catch (err) {
     next(err);
@@ -22,32 +24,35 @@ router.post('/compare', (req, res, next) => {
     const { action_ids = [] } = req.body;
     const allRecs = db.get('recommendations');
     const selected = allRecs.filter((r) => action_ids.includes(r.id));
-    const missingIds = action_ids.filter((id) => !allRecs.some((recommendation) => recommendation.id === id));
-    if (missingIds.length > 0) {
-      return res.status(404).json({ error: 'NotFound', resource: 'recommendation', id: missingIds[0] });
-    }
 
     res.json({
       success: true,
       selectedActions: selected,
-      recommendationRationale: 'EcoMind recommends HVAC Scheduling Override as the top immediate priority because it requires $0 capital expenditure while delivering +7 EcoScore points in under 4 months.'
+      recommendationRationale: 'EcoMind recommends HVAC Scheduling Override as the top immediate priority because it requires minimal capital expenditure while delivering +7 EcoScore points in under 4 months.'
     });
   } catch (err) {
     next(err);
   }
 });
 
-// 3. Save Action Plan
+// 3. Save or Update Action Plan
 router.post('/plan', (req, res, next) => {
   try {
-    const { org_id = '11111111-1111-1111-1111-111111111111', recommendation_id } = req.body;
-    if (!db.getById('recommendations', recommendation_id)) {
-      return res.status(404).json({ error: 'NotFound', resource: 'recommendation', id: recommendation_id });
+    const { org_id = '11111111-1111-1111-1111-111111111111', recommendation_id, status = 'planned', assigned_to = 'Facilities Team', target_completion } = req.body;
+    
+    // Check if already in action plans
+    const existing = db.get('action_plans').find(p => p.recommendation_id === recommendation_id);
+    if (existing) {
+      const updated = db.update('action_plans', existing.id, { status, assigned_to, target_completion });
+      return res.json({ success: true, plan: updated, message: 'Action plan updated' });
     }
+
     const plan = db.insert('action_plans', {
       org_id,
       recommendation_id,
-      status: 'planned'
+      status,
+      assigned_to,
+      target_completion: target_completion || new Date(Date.now() + 60 * 86400000).toISOString().split('T')[0]
     });
 
     res.json({
@@ -60,4 +65,18 @@ router.post('/plan', (req, res, next) => {
   }
 });
 
+// 4. Update Plan Status
+router.patch('/plan/:id', (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const { status, assigned_to } = req.body;
+    const updated = db.update('action_plans', id, { status, assigned_to });
+    if (!updated) return res.status(404).json({ error: 'Plan not found' });
+    res.json({ success: true, plan: updated });
+  } catch (err) {
+    next(err);
+  }
+});
+
 export default router;
+

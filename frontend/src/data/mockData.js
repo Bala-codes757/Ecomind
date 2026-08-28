@@ -6,7 +6,7 @@ export const activeModules = [
     name: 'Energy & Electricity',
     icon: 'Zap',
     badge: 'Active',
-    description: 'Automatic ingestion of grid power utility bills, renewable PPA records, submetering CSVs, and HVAC load data.',
+    description: 'Ingestion of utility power bills, renewable PPA records, submetering data, and HVAC load profiles.',
     kpis: { score: 72, trend: '+4%', mainDriver: 'Peak HVAC Load' },
     route: '/survey/energy'
   },
@@ -15,7 +15,7 @@ export const activeModules = [
     name: 'Water Management',
     icon: 'Droplets',
     badge: 'Active',
-    description: 'Analyze municipal water meter readings, wastewater treatment logs, cooling tower cycles, and rainwater harvesting metrics.',
+    description: 'Analyze municipal water meter readings, wastewater logs, cooling tower cycles, and recycling metrics.',
     kpis: { score: 81, trend: '+8%', mainDriver: 'Recycling Efficiency' },
     route: '/survey/water'
   },
@@ -24,7 +24,7 @@ export const activeModules = [
     name: 'Waste Management',
     icon: 'Trash2',
     badge: 'Active',
-    description: 'Track municipal waste manifests, hazardous chemical logs, composting receipts, and circular economy diversion ratios.',
+    description: 'Track municipal waste manifests, scrap sorting logs, composting records, and landfill diversion ratios.',
     kpis: { score: 68, trend: '-2%', mainDriver: 'Landfill Diversion' },
     route: '/survey/waste'
   }
@@ -52,7 +52,7 @@ export const futureModules = [
     name: 'Custom Module',
     icon: 'Layers',
     badge: 'Enterprise',
-    description: 'Build tailor-made sustainability indicators and custom AI diagnostic models for unique industrial processes.',
+    description: 'Build tailor-made sustainability indicators and custom diagnostic models for unique industrial processes.',
     disabled: true
   }
 ];
@@ -60,32 +60,50 @@ export const futureModules = [
 export const sampleIngestionFiles = [
   {
     id: 'doc-1',
-    name: 'Electricity_Bill.pdf',
+    name: 'Facility_Substation_480V_Invoice.pdf',
     type: 'PDF',
     size: '2.4 MB',
     date: '2026-08-15',
     status: 'Ready for Extraction',
-    category: 'Energy & Electricity',
+    category: 'Energy & Peak Demand',
+    consumption: 142500,
+    amount: 18525.50,
     icon: 'FileText'
   },
   {
     id: 'doc-2',
-    name: 'Water_Bill.pdf',
+    name: 'Industrial_Site_Utility_PPA_Settlement.pdf',
     type: 'PDF',
-    size: '1.1 MB',
-    date: '2026-08-10',
+    size: '3.8 MB',
+    date: '2026-08-12',
     status: 'Ready for Extraction',
-    category: 'Water Management',
+    category: 'Solar & Grid Power',
+    consumption: 3800000,
+    amount: 342000.00,
     icon: 'FileText'
   },
   {
     id: 'doc-3',
-    name: 'Waste_Report.xlsx',
+    name: 'Cooling_Water_Treatment_Manifest.xlsx',
     type: 'XLSX',
+    size: '1.8 MB',
+    date: '2026-08-10',
+    status: 'Ready for Extraction',
+    category: 'Water & UPW Treatment',
+    consumption: 850000,
+    amount: 12400.00,
+    icon: 'Spreadsheet'
+  },
+  {
+    id: 'doc-4',
+    name: 'Plant_Scrap_and_Waste_Diversion.csv',
+    type: 'CSV',
     size: '4.8 MB',
     date: '2026-08-02',
     status: 'Ready for Extraction',
-    category: 'Waste Management',
+    category: 'Industrial Waste & Metals',
+    consumption: 42000,
+    amount: 8900.00,
     icon: 'Spreadsheet'
   }
 ];
@@ -93,7 +111,7 @@ export const sampleIngestionFiles = [
 export const mockEcoScoreAnalysis = {
   overallScore: 74,
   grade: 'B+',
-  organization: 'Apex Industrial Solutions',
+  organization: 'Industrial Facility Site',
   lastUpdated: '2026-08-28',
   breakdown: [
     { category: 'Energy & Electricity', score: 72, weight: '45%', status: 'Moderate', color: '#10b981' },

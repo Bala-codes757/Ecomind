@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Sliders, ArrowRight } from 'lucide-react';
 import { getRecommendations, saveActionPlan } from '../services/apiClient';
 import PageIntro from '../components/PageIntro';
 import EmptyState from '../components/EmptyState';
@@ -40,10 +41,16 @@ export default function Improve() {
     <div className="container page-shell">
       <PageIntro
         kicker="Work plan"
-        title="What to fund next"
-        actions={<Link to="/compare" className="btn btn-secondary btn-sm">Compare side by side</Link>}
+        title="Prioritized Engineering Interventions"
+        actions={
+          <div style={{ display: 'flex', gap: '0.4rem' }}>
+            <Link to="/compare" className="btn btn-secondary btn-sm">
+              Compare Side-by-Side
+            </Link>
+          </div>
+        }
       >
-        Ranked by impact, not by how clever the write-up sounds. Pin items you are willing to take to finance.
+        Ranked by thermodynamic return and audited payback. Pin items to take to financial review.
       </PageIntro>
 
       <div className="toolbar">

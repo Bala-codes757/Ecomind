@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { simulateScenarioParams } from '../services/apiClient';
 import PageIntro from '../components/PageIntro';
 import { useWorkspace } from '../context/WorkspaceContext';
@@ -10,11 +11,23 @@ const PRESETS = [
 ];
 
 export default function Simulator() {
+  const [searchParams] = useSearchParams();
   const { saveScenario, savedScenarios } = useWorkspace();
   const [solarPercent, setSolarPercent] = useState(30);
   const [waterRecyclePercent, setWaterRecyclePercent] = useState(40);
   const [wasteDiversionPercent, setWasteDiversionPercent] = useState(50);
   const [simulation, setSimulation] = useState(null);
+
+  useEffect(() => {
+    const preset = searchParams.get('preset');
+    if (preset === 'solar') {
+      setSolarPercent(75);
+    } else if (preset === 'hvac' || preset === 'water') {
+      setWaterRecyclePercent(65);
+    } else if (preset === 'waste') {
+      setWasteDiversionPercent(80);
+    }
+  }, [searchParams]);
 
   useEffect(() => {
     let live = true;
@@ -25,6 +38,7 @@ export default function Simulator() {
       .catch(console.error);
     return () => { live = false; };
   }, [solarPercent, waterRecyclePercent, wasteDiversionPercent]);
+
 
   return (
     <div className="container page-shell">

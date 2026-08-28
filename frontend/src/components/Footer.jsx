@@ -37,10 +37,6 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-        <div className="footer-bottom">
-          <p>© {new Date().getFullYear()} EcoMind</p>
-          <p>Scores are calculated from meter totals, not generated copy.</p>
-        </div>
       </div>
     </footer>
   );

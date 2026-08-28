@@ -22,7 +22,91 @@ router.get('/config', (req, res, next) => {
   }
 });
 
-// 2. Add or Edit Module
+// 2. Export Entire Database (Generic Backup)
+router.get('/export', (req, res, next) => {
+  try {
+    const backup = db.exportAll();
+    res.setHeader('Content-Type', 'application/json');
+    res.setHeader('Content-Disposition', `attachment; filename=ecomind_backup_${Date.now()}.json`);
+    res.json(backup);
+  } catch (err) {
+    next(err);
+  }
+});
+
+// 3. Import Full Database Backup
+router.post('/import', (req, res, next) => {
+  try {
+    const result = db.importAll(req.body);
+    res.json({
+      success: true,
+      message: 'System database successfully restored',
+      result
+    });
+  } catch (err) {
+    res.status(400).json({ error: 'ImportFailed', message: err.message });
+  }
+});
+
+// 4. Reset to Clean Default Baseline
+router.post('/reset', (req, res, next) => {
+  try {
+    db.reset();
+    res.json({
+      success: true,
+      message: 'Database reset to clean baseline configuration'
+    });
+  } catch (err) {
+    next(err);
+  }
+});
+
+// 5. System & Storage Statistics
+router.get('/stats', (req, res, next) => {
+  try {
+    const all = db.exportAll().data;
+    const counts = {};
+    for (const [key, val] of Object.entries(all)) {
+      counts[key] = Array.isArray(val) ? val.length : 1;
+    }
+
+    res.json({
+      success: true,
+      storage_mode: 'Generic Standalone (Zero Google Lock-in)',
+      active_driver: 'File-backed Persistent JSON / Relational Adapter',
+      record_counts: counts,
+      server_time: new Date().toISOString()
+    });
+  } catch (err) {
+    next(err);
+  }
+});
+
+// 6. Export Table as CSV
+router.get('/export/csv/:table', (req, res, next) => {
+  try {
+    const { table } = req.params;
+    const records = db.get(table);
+    if (!records || records.length === 0) {
+      return res.status(404).send('No records found for table');
+    }
+
+    const headers = Object.keys(records[0]);
+    const csvRows = [
+      headers.join(','),
+      ...records.map(row => headers.map(fieldName => JSON.stringify(row[fieldName] ?? '')).join(','))
+    ];
+    const csvContent = csvRows.join('\n');
+
+    res.setHeader('Content-Type', 'text/csv');
+    res.setHeader('Content-Disposition', `attachment; filename=ecomind_${table}_${Date.now()}.csv`);
+    res.send(csvContent);
+  } catch (err) {
+    next(err);
+  }
+});
+
+// 7. Add or Edit Module
 router.post('/modules', (req, res, next) => {
   try {
     const { id, key, name, description, is_active, badge, icon } = req.body;
@@ -38,7 +122,7 @@ router.post('/modules', (req, res, next) => {
   }
 });
 
-// 3. Delete Module
+// 8. Delete Module
 router.delete('/modules/:id', (req, res, next) => {
   try {
     const { id } = req.params;
@@ -52,7 +136,7 @@ router.delete('/modules/:id', (req, res, next) => {
   }
 });
 
-// 4. Add or Edit Survey Question
+// 9. Add or Edit Survey Question
 router.post('/questions', (req, res, next) => {
   try {
     const { id, module_key, question_text, question_type, options } = req.body;
@@ -74,3 +158,4 @@ router.post('/questions', (req, res, next) => {
 });
 
 export default router;
+

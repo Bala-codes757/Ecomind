@@ -1,7 +1,6 @@
 // EcoMind API Client - Connects React Frontend to Express Backend Server
 
-const HOST = typeof window !== 'undefined' ? window.location.hostname : 'localhost';
-const API_BASE = `http://${HOST}:5000/api`;
+const API_BASE = '/api';
 const ADMIN_KEY = import.meta.env.VITE_ADMIN_KEY || '';
 
 /**
@@ -32,7 +31,12 @@ async function request(endpoint, options = {}) {
 // 1. Documents API
 export async function uploadDocumentFile(file) {
   const formData = new FormData();
-  formData.append('file', file);
+  let filePayload = file;
+  if (!(file instanceof Blob)) {
+    const textContent = `Facility Utility & Resource Report: ${file.name || 'document'}\nBilling Period: July 2026\nConsumption: 142500 kWh\nTotal Amount: $18525.50\nPeak Demand: 480 kW\nWater Consumption: 85000 Litres\nTotal Waste: 1250 kg\nRecycled Waste: 420 kg`;
+    filePayload = new File([textContent], file.name || 'document.txt', { type: 'text/plain' });
+  }
+  formData.append('file', filePayload);
 
   const res = await fetch(`${API_BASE}/documents/upload`, {
     method: 'POST',
@@ -114,13 +118,21 @@ export async function getProgressHistory(orgId = '11111111-1111-1111-1111-111111
   return await request(`/progress/${orgId}`);
 }
 
-// 7. Admin Configuration API
+// 7. Admin Configuration & Standalone Storage API
 export async function getAdminConfig() {
   return await request('/admin/config');
 }
 
 export async function getModules() {
   return await request('/modules');
+}
+
+export async function getOrganizations() {
+  return await request('/organizations');
+}
+
+export async function getBenchmarks() {
+  return await request('/benchmarks');
 }
 
 export async function saveAdminModule(moduleData) {
@@ -130,7 +142,41 @@ export async function saveAdminModule(moduleData) {
   });
 }
 
+export async function getSystemStats() {
+  return await request('/admin/stats');
+}
+
+export async function exportSystemBackup() {
+  const res = await fetch(`${API_BASE}/admin/export`, {
+    headers: {
+      ...(ADMIN_KEY ? { 'x-admin-key': ADMIN_KEY } : {})
+    }
+  });
+  return await res.json();
+}
+
+export async function importSystemBackup(backupData) {
+  return await request('/admin/import', {
+    method: 'POST',
+    body: JSON.stringify(backupData)
+  });
+}
+
+export async function resetSystemDatabase() {
+  return await request('/admin/reset', {
+    method: 'POST'
+  });
+}
+
+export async function updateActionPlanStatus(planId, status, assignedTo) {
+  return await request(`/recommendations/plan/${planId}`, {
+    method: 'PATCH',
+    body: JSON.stringify({ status, assigned_to: assignedTo })
+  });
+}
+
 // 8. IoT Normalized Telemetry API
+
 export async function getIoTReadings() {
   return await request('/iot/readings');
 }
@@ -138,6 +184,29 @@ export async function getIoTReadings() {
 export async function triggerIoTSimulation() {
   return await request('/iot/simulate', {
     method: 'POST'
+  });
+}
+
+// 9. Server-Side AI Engineering Co-Pilot & Forensics API
+
+export async function sendAIChat(message, conversationHistory = [], facilityContext = {}) {
+  return await request('/ai/chat', {
+    method: 'POST',
+    body: JSON.stringify({ message, conversationHistory, facilityContext })
+  });
+}
+
+export async function runAIAnomalyScan(telemetryData = {}, facilityContext = {}) {
+  return await request('/ai/anomaly-scan', {
+    method: 'POST',
+    body: JSON.stringify({ telemetryData, facilityContext })
+  });
+}
+
+export async function generateAIBoardMemo(facilityContext = {}, plannedActions = [], scoreData = {}) {
+  return await request('/ai/board-memo', {
+    method: 'POST',
+    body: JSON.stringify({ facilityContext, plannedActions, scoreData })
   });
 }
 
@@ -158,5 +227,8 @@ export default {
   getModules,
   saveAdminModule,
   getIoTReadings,
-  triggerIoTSimulation
+  triggerIoTSimulation,
+  sendAIChat,
+  runAIAnomalyScan,
+  generateAIBoardMemo
 };

@@ -148,11 +148,21 @@ export default function DataIngestion() {
         <p className="section-copy">Use these if you just want to walk the rest of the product.</p>
         <div className="example-files-grid">
           {sampleIngestionFiles.map((file) => (
-            <button key={file.id} type="button" className="example-file-card" onClick={() => processFile({ name: file.name, size: 2400000 })}>
-              {file.type === 'XLSX' ? <FileSpreadsheet size={20} /> : <FileText size={20} />}
+            <button
+              key={file.id}
+              type="button"
+              className="example-file-card"
+              onClick={() => processFile({
+                name: file.name,
+                size: 2400000,
+                consumption: file.consumption,
+                amount: file.amount
+              })}
+            >
+              {file.type === 'XLSX' || file.type === 'CSV' ? <FileSpreadsheet size={20} /> : <FileText size={20} />}
               <div>
                 <div className="example-file-name">{file.name}</div>
-                <div className="example-file-meta">{file.category} · {file.size}</div>
+                <div className="example-file-meta">{file.category} · {file.size} · ${(file.amount || 0).toLocaleString()}</div>
               </div>
             </button>
           ))}

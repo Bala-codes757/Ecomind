@@ -4,6 +4,7 @@ import Header from './Header';
 import Footer from './Footer';
 import WorkflowStrip from './WorkflowStrip';
 import CommandPalette from './CommandPalette';
+import HologramGlobeBackground from './HologramGlobeBackground';
 import { useWorkspace } from '../context/WorkspaceContext';
 
 export default function Layout() {
@@ -25,9 +26,11 @@ export default function Layout() {
   return (
     <>
       <a className="skip-link" href="#main">Skip to content</a>
+      {/* Scroll-Reactive 3D Hologram Globe in Background */}
+      <HologramGlobeBackground />
       <Header onOpenSearch={() => setSearchOpen(true)} />
       <WorkflowStrip key={location.pathname} />
-      <main id="main" style={{ flex: 1 }}>
+      <main id="main" style={{ flex: 1, position: 'relative', zIndex: 1 }}>
         <Outlet />
       </main>
       <Footer />

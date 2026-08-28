@@ -13,6 +13,7 @@ import Compare from './pages/Compare';
 import Simulator from './pages/Simulator';
 import Progress from './pages/Progress';
 import Admin from './pages/Admin';
+import DataPortability from './pages/DataPortability';
 
 export default function App() {
   return (
@@ -28,9 +29,11 @@ export default function App() {
             <Route path="analysis" element={<Analysis />} />
             <Route path="results" element={<Results />} />
             <Route path="improve" element={<Improve />} />
+            <Route path="recommendations" element={<Improve />} />
             <Route path="compare" element={<Compare />} />
             <Route path="simulator" element={<Simulator />} />
             <Route path="progress" element={<Progress />} />
+            <Route path="portability" element={<DataPortability />} />
             <Route path="admin" element={<Admin />} />
           </Route>
         </Routes>
@@ -38,3 +41,4 @@ export default function App() {
     </WorkspaceProvider>
   );
 }
+
