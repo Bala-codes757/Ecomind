@@ -1,0 +1,17 @@
+{
+  "name": "ecomind-fullstack-app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "EcoMind - AI-Powered Sustainability Diagnosis & Decision Engine",
+  "scripts": {
+    "install:all": "cd backend && npm install --strict-ssl=false && cd ../frontend && npm install --strict-ssl=false",
+    "start:backend": "cd backend && node server.js",
+    "start:frontend": "cd frontend && npm run dev",
+    "build:frontend": "cd frontend && npm run build"
+  },
+  "dependencies": {
+    "mammoth": "^1.12.1",
+    "pdf-parse": "^2.4.5",
+    "xlsx": "^0.18.5"
+  }
+}

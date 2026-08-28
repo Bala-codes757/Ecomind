@@ -1,0 +1,3902 @@
+{
+  "organizations": [
+    {
+      "id": "11111111-1111-1111-1111-111111111111",
+      "name": "Apex Industrial Solutions",
+      "region": "North America (US-East / eGRID)",
+      "created_at": "2026-08-28T10:46:03.176Z"
+    }
+  ],
+  "modules": [
+    {
+      "id": "m-1",
+      "key": "energy",
+      "name": "Energy & Electricity",
+      "description": "Automatic ingestion of grid power utility bills, renewable PPA records, submetering CSVs, and HVAC load data.",
+      "icon": "Zap",
+      "badge": "Active",
+      "is_active": true,
+      "order_index": 1,
+      "updated_at": "2026-08-28T11:04:38.598Z"
+    },
+    {
+      "id": "m-2",
+      "key": "water",
+      "name": "Water Management",
+      "description": "Analyze municipal water meter readings, wastewater treatment logs, cooling tower cycles, and rainwater harvesting metrics.",
+      "icon": "Droplets",
+      "badge": "Active",
+      "is_active": true,
+      "order_index": 2
+    },
+    {
+      "id": "m-3",
+      "key": "waste",
+      "name": "Waste Management",
+      "description": "Track municipal waste manifests, hazardous chemical logs, composting receipts, and circular economy diversion ratios.",
+      "icon": "Trash2",
+      "badge": "Active",
+      "is_active": true,
+      "order_index": 3
+    },
+    {
+      "id": "m-4",
+      "key": "transport",
+      "name": "Transport & Mobility",
+      "description": "Scope 3 corporate fleet telemetry, employee commuting logs, and supply chain logistics carbon intensity calculation.",
+      "icon": "Truck",
+      "badge": "Coming Soon",
+      "is_active": false,
+      "order_index": 4
+    },
+    {
+      "id": "m-5",
+      "key": "investment",
+      "name": "Investment Planning",
+      "description": "CapEx allocation engine for solar payback, thermal retrofit ROI, and green financing tax credit optimization.",
+      "icon": "TrendingUp",
+      "badge": "Coming Soon",
+      "is_active": false,
+      "order_index": 5
+    },
+    {
+      "id": "m-6",
+      "key": "custom",
+      "name": "Custom Module",
+      "description": "Build tailor-made sustainability indicators and custom AI diagnostic models for unique industrial processes.",
+      "icon": "Layers",
+      "badge": "Enterprise",
+      "is_active": false,
+      "order_index": 6
+    }
+  ],
+  "survey_questions": [
+    {
+      "id": "q-energy-1",
+      "module_key": "energy",
+      "question_text": "What is your primary operational energy concern?",
+      "question_type": "single_choice",
+      "is_required": true,
+      "order_index": 1,
+      "options": [
+        {
+          "label": "High electricity bill / peak tariffs",
+          "value": "high_bill"
+        },
+        {
+          "label": "High overall electricity consumption",
+          "value": "high_consumption"
+        },
+        {
+          "label": "Off-peak energy wastage & leaks",
+          "value": "energy_leak"
+        },
+        {
+          "label": "Reduce Scope 1 & 2 carbon footprint",
+          "value": "reduce_emissions"
+        },
+        {
+          "label": "Don't know where energy is being consumed",
+          "value": "unknown"
+        }
+      ]
+    },
+    {
+      "id": "q-energy-2-hvac",
+      "module_key": "energy",
+      "question_text": "Which equipment category consumes the most power during operations?",
+      "question_type": "single_choice",
+      "is_required": true,
+      "order_index": 2,
+      "options": [
+        {
+          "label": "HVAC / Industrial Chillers & Cooling Towers",
+          "value": "hvac"
+        },
+        {
+          "label": "Heavy Manufacturing Machinery & Motors",
+          "value": "machinery"
+        },
+        {
+          "label": "Facility High-Bay Lighting",
+          "value": "lighting"
+        },
+        {
+          "label": "Data Center / IT Server Infrastructure",
+          "value": "it_servers"
+        },
+        {
+          "label": "Other Process Equipment",
+          "value": "other"
+        }
+      ]
+    },
+    {
+      "id": "q-energy-3-schedule",
+      "module_key": "energy",
+      "question_text": "How many hours does your organization operate per day?",
+      "question_type": "single_choice",
+      "is_required": true,
+      "order_index": 3,
+      "options": [
+        {
+          "label": "Standard Single Shift (8 Hours / 5 Days)",
+          "value": "shift_8h"
+        },
+        {
+          "label": "Double Shift (16 Hours / 5 Days)",
+          "value": "shift_16h"
+        },
+        {
+          "label": "24/7 Continuous Operations",
+          "value": "shift_24h"
+        }
+      ]
+    }
+  ],
+  "survey_branch_rules": [
+    {
+      "id": "b-1",
+      "question_id": "q-energy-1",
+      "trigger_option_value": "high_bill",
+      "next_question_id": "q-energy-2-hvac"
+    },
+    {
+      "id": "b-2",
+      "question_id": "q-energy-1",
+      "trigger_option_value": "high_consumption",
+      "next_question_id": "q-energy-2-hvac"
+    }
+  ],
+  "survey_sessions": [
+    {
+      "id": "id-1787917208419-0p5zc",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "module_key": "energy",
+      "status": "completed",
+      "current_question_id": "q-energy-3-schedule",
+      "created_at": "2026-08-28T11:40:08.419Z",
+      "updated_at": "2026-08-28T11:40:17.969Z"
+    },
+    {
+      "id": "id-1787936424081-2w6ct",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "module_key": "energy",
+      "status": "completed",
+      "current_question_id": "q-energy-3-schedule",
+      "created_at": "2026-08-28T17:00:24.081Z",
+      "updated_at": "2026-08-28T17:00:41.224Z"
+    },
+    {
+      "id": "id-1787936541379-onl9f",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "module_key": "energy",
+      "status": "completed",
+      "current_question_id": "q-energy-3-schedule",
+      "created_at": "2026-08-28T17:02:21.379Z",
+      "updated_at": "2026-08-28T17:07:23.911Z"
+    }
+  ],
+  "survey_answers": [
+    {
+      "id": "id-1787917215049-4gax8",
+      "session_id": "id-1787917208419-0p5zc",
+      "question_id": "q-energy-1",
+      "answer_value": "high_bill",
+      "created_at": "2026-08-28T11:40:15.049Z"
+    },
+    {
+      "id": "id-1787917216746-6uwoj",
+      "session_id": "id-1787917208419-0p5zc",
+      "question_id": "q-energy-2-hvac",
+      "answer_value": "hvac",
+      "created_at": "2026-08-28T11:40:16.746Z"
+    },
+    {
+      "id": "id-1787917217968-8cedp",
+      "session_id": "id-1787917208419-0p5zc",
+      "question_id": "q-energy-3-schedule",
+      "answer_value": "shift_8h",
+      "created_at": "2026-08-28T11:40:17.968Z"
+    },
+    {
+      "id": "id-1787936434461-iz2ap",
+      "session_id": "id-1787936424081-2w6ct",
+      "question_id": "q-energy-1",
+      "answer_value": "high_consumption",
+      "created_at": "2026-08-28T17:00:34.461Z"
+    },
+    {
+      "id": "id-1787936438734-z2ty0",
+      "session_id": "id-1787936424081-2w6ct",
+      "question_id": "q-energy-2-hvac",
+      "answer_value": "hvac",
+      "created_at": "2026-08-28T17:00:38.735Z"
+    },
+    {
+      "id": "id-1787936441222-dhzom",
+      "session_id": "id-1787936424081-2w6ct",
+      "question_id": "q-energy-3-schedule",
+      "answer_value": "shift_16h",
+      "created_at": "2026-08-28T17:00:41.222Z"
+    },
+    {
+      "id": "id-1787936835791-qy6nt",
+      "session_id": "id-1787936541379-onl9f",
+      "question_id": "q-energy-1",
+      "answer_value": "high_bill",
+      "created_at": "2026-08-28T17:07:15.791Z"
+    },
+    {
+      "id": "id-1787936838814-gj28h",
+      "session_id": "id-1787936541379-onl9f",
+      "question_id": "q-energy-2-hvac",
+      "answer_value": "hvac",
+      "created_at": "2026-08-28T17:07:18.814Z"
+    },
+    {
+      "id": "id-1787936843909-d01a9",
+      "session_id": "id-1787936541379-onl9f",
+      "question_id": "q-energy-3-schedule",
+      "answer_value": "shift_8h",
+      "created_at": "2026-08-28T17:07:23.909Z"
+    }
+  ],
+  "documents": [],
+  "document_extractions": [
+    {
+      "id": "id-1787917224315-8u1n4",
+      "document_id": "doc-1787917224311",
+      "raw_json": {
+        "billing_period": "July 2026",
+        "consumption": 85000,
+        "unit": "litres",
+        "amount": 32000,
+        "previous_reading": 420000,
+        "current_reading": 505000
+      },
+      "confidence_score": 0.95,
+      "validation_status": "passed",
+      "verified_by_user": false,
+      "created_at": "2026-08-28T11:40:24.315Z"
+    },
+    {
+      "id": "id-1787917225353-c9yrp",
+      "document_id": "doc-1787917225351",
+      "raw_json": {
+        "billing_period": "Q2 2026",
+        "consumption": 1250,
+        "unit": "kg",
+        "amount": 14500,
+        "previous_reading": 0,
+        "current_reading": 0
+      },
+      "confidence_score": 0.94,
+      "validation_status": "passed",
+      "verified_by_user": false,
+      "created_at": "2026-08-28T11:40:25.353Z"
+    },
+    {
+      "id": "id-1787917226022-pe334",
+      "document_id": "doc-1787917226021",
+      "raw_json": {
+        "billing_period": "July 2026",
+        "consumption": 12450,
+        "unit": "kWh",
+        "amount": 98500,
+        "previous_reading": 112070,
+        "current_reading": 124520
+      },
+      "confidence_score": 0.96,
+      "validation_status": "passed",
+      "verified_by_user": false,
+      "created_at": "2026-08-28T11:40:26.022Z"
+    }
+  ],
+  "utility_bills": [],
+  "waste_records": [],
+  "analysis_results": [
+    {
+      "id": "id-1787917228481-676v1",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "primary_concern": "High electricity bill & off-peak chiller load",
+      "probable_root_cause": "Chiller units running at 85% capacity between 11 PM and 4 AM on weekends due to override timers not resetting.",
+      "company_need": "Automated BMS HVAC Scheduling Override & Submetering Telemetry.",
+      "reasoning": "Calculated baseline energy usage indicates continuous night-time HVAC load despite 0% workforce occupancy on weekends. Over-chilling causes 18.4 metric tons of avoidable CO2 emissions annually.",
+      "trade_offs": "Low upfront software configuration cost ($1,200) vs minimal operational disruption (requires 2-hour weekend calibration window).",
+      "raw_facts_json": {
+        "overallScore": 71,
+        "grade": "B",
+        "energyScore": 71,
+        "waterScore": 79,
+        "wasteScore": 60,
+        "metrics": {
+          "electricityKWh": 12450,
+          "waterLitres": 85000,
+          "wasteKg": 1250,
+          "recycledKg": 420,
+          "recyclingRatePercent": 34
+        },
+        "emissions": {
+          "totalCO2eTons": 6.1,
+          "energyEmissionsTons": 5.48,
+          "waterEmissionsTons": 0.03,
+          "wasteEmissionsTons": 0.6
+        },
+        "factors": {
+          "elecFactor": 0.4402,
+          "waterFactor": 0.0003,
+          "wasteFactor": 0.72
+        },
+        "calculationVersion": "v1.0.0"
+      },
+      "created_at": "2026-08-28T11:40:28.481Z"
+    }
+  ],
+  "sustainability_scores": [
+    {
+      "id": "id-1787917228479-e5983",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "overall_score": 71,
+      "grade": "B",
+      "energy_score": 71,
+      "water_score": 79,
+      "waste_score": 60,
+      "calculation_version": "v1.0.0",
+      "created_at": "2026-08-28T11:40:28.479Z"
+    }
+  ],
+  "recommendations": [
+    {
+      "id": "rec-1",
+      "module_key": "energy",
+      "title": "Automated BMS HVAC Scheduling & Reset Override",
+      "description": "Program smart override timers to power down facility chillers during off-peak weekend windows.",
+      "cost_level": "Low",
+      "impact_level": "High",
+      "score_delta": 7,
+      "difficulty": "Easy",
+      "disruption": "Low",
+      "est_payback": "4 Months",
+      "est_annual_savings": "$14,200 / yr",
+      "co2_reduction": "18.4 t CO2e"
+    },
+    {
+      "id": "rec-2",
+      "module_key": "waste",
+      "title": "Establish Dedicated Organic Composting Pipeline",
+      "description": "Divert organic food waste from landfill compactors into municipal industrial composting.",
+      "cost_level": "Low",
+      "impact_level": "Medium",
+      "score_delta": 5,
+      "difficulty": "Easy",
+      "disruption": "Low",
+      "est_payback": "7 Months",
+      "est_annual_savings": "$4,800 / yr",
+      "co2_reduction": "9.2 t CO2e"
+    },
+    {
+      "id": "rec-3",
+      "module_key": "water",
+      "title": "Cooling Tower Closed-Loop Recirculation Upgrade",
+      "description": "Install submetering and filtration loop to recycle blowdown water.",
+      "cost_level": "Medium",
+      "impact_level": "High",
+      "score_delta": 6,
+      "difficulty": "Medium",
+      "disruption": "Medium",
+      "est_payback": "14 Months",
+      "est_annual_savings": "$8,600 / yr",
+      "co2_reduction": "5.1 t CO2e"
+    }
+  ],
+  "action_plans": [],
+  "emission_factors": [
+    {
+      "id": "ef-1",
+      "category": "electricity",
+      "region": "US-East",
+      "factor_value": 0.4402,
+      "unit": "kg CO2e / kWh",
+      "source": "EPA eGRID 2026"
+    },
+    {
+      "id": "ef-2",
+      "category": "water",
+      "region": "US-East",
+      "factor_value": 0.0003,
+      "unit": "kg CO2e / litre",
+      "source": "US Water Alliance"
+    },
+    {
+      "id": "ef-3",
+      "category": "waste_landfill",
+      "region": "US-East",
+      "factor_value": 0.72,
+      "unit": "kg CO2e / kg",
+      "source": "EPA WARM v15"
+    }
+  ],
+  "benchmarks": [
+    {
+      "id": "bm-1",
+      "category": "energy",
+      "metric_name": "Electricity Intensity (kWh / sq ft)",
+      "median_value": 18.5,
+      "unit": "kWh/sqft"
+    },
+    {
+      "id": "bm-2",
+      "category": "water",
+      "metric_name": "Water Recycling Rate (%)",
+      "median_value": 45,
+      "unit": "%"
+    },
+    {
+      "id": "bm-3",
+      "category": "waste",
+      "metric_name": "Landfill Waste Diversion (%)",
+      "median_value": 75,
+      "unit": "%"
+    }
+  ],
+  "iot_devices": [
+    {
+      "id": "iot-1",
+      "device_code": "meter-001",
+      "meter_name": "Main Substation Grid Meter",
+      "metric": "electricity",
+      "unit": "kWh",
+      "status": "online"
+    },
+    {
+      "id": "iot-2",
+      "device_code": "meter-002",
+      "meter_name": "Cooling Tower Intake Submeter",
+      "metric": "water",
+      "unit": "litres",
+      "status": "online"
+    },
+    {
+      "id": "iot-3",
+      "device_code": "meter-003",
+      "meter_name": "Landfill Scale Telemetry",
+      "metric": "waste",
+      "unit": "kg",
+      "status": "online"
+    }
+  ],
+  "iot_readings": [
+    {
+      "id": "id-1787915010162-tas90",
+      "device_code": "meter-001",
+      "metric": "electricity",
+      "value": 40,
+      "unit": "kWh",
+      "timestamp": "2026-08-28T11:03:30.162Z",
+      "created_at": "2026-08-28T11:03:30.162Z"
+    },
+    {
+      "id": "id-1787915010164-3yq7v",
+      "device_code": "meter-002",
+      "metric": "water",
+      "value": 308.36,
+      "unit": "litres",
+      "timestamp": "2026-08-28T11:03:30.162Z",
+      "created_at": "2026-08-28T11:03:30.164Z"
+    },
+    {
+      "id": "id-1787915010165-ne6eg",
+      "device_code": "meter-003",
+      "metric": "waste",
+      "value": 13.22,
+      "unit": "kg",
+      "timestamp": "2026-08-28T11:03:30.162Z",
+      "created_at": "2026-08-28T11:03:30.165Z"
+    },
+    {
+      "id": "id-1787915016759-fkwlc",
+      "device_code": "meter-001",
+      "metric": "electricity",
+      "value": 46.81,
+      "unit": "kWh",
+      "timestamp": "2026-08-28T11:03:36.759Z",
+      "created_at": "2026-08-28T11:03:36.759Z"
+    },
+    {
+      "id": "id-1787915016760-ib024",
+      "device_code": "meter-002",
+      "metric": "water",
+      "value": 302.96,
+      "unit": "litres",
+      "timestamp": "2026-08-28T11:03:36.759Z",
+      "created_at": "2026-08-28T11:03:36.760Z"
+    },
+    {
+      "id": "id-1787915016761-a2nmj",
+      "device_code": "meter-003",
+      "metric": "waste",
+      "value": 15.1,
+      "unit": "kg",
+      "timestamp": "2026-08-28T11:03:36.759Z",
+      "created_at": "2026-08-28T11:03:36.761Z"
+    },
+    {
+      "id": "id-1787915018100-odon3",
+      "device_code": "meter-001",
+      "metric": "electricity",
+      "value": 40.74,
+      "unit": "kWh",
+      "timestamp": "2026-08-28T11:03:38.100Z",
+      "created_at": "2026-08-28T11:03:38.100Z"
+    },
+    {
+      "id": "id-1787915018101-cakbm",
+      "device_code": "meter-002",
+      "metric": "water",
+      "value": 277,
+      "unit": "litres",
+      "timestamp": "2026-08-28T11:03:38.100Z",
+      "created_at": "2026-08-28T11:03:38.101Z"
+    },
+    {
+      "id": "id-1787915018102-3et7r",
+      "device_code": "meter-003",
+      "metric": "waste",
+      "value": 9.68,
+      "unit": "kg",
+      "timestamp": "2026-08-28T11:03:38.100Z",
+      "created_at": "2026-08-28T11:03:38.102Z"
+    },
+    {
+      "id": "id-1787915018894-epy53",
+      "device_code": "meter-001",
+      "metric": "electricity",
+      "value": 41.99,
+      "unit": "kWh",
+      "timestamp": "2026-08-28T11:03:38.894Z",
+      "created_at": "2026-08-28T11:03:38.894Z"
+    },
+    {
+      "id": "id-1787915018896-nytqy",
+      "device_code": "meter-002",
+      "metric": "water",
+      "value": 276.43,
+      "unit": "litres",
+      "timestamp": "2026-08-28T11:03:38.894Z",
+      "created_at": "2026-08-28T11:03:38.896Z"
+    },
+    {
+      "id": "id-1787915018897-qbysz",
+      "device_code": "meter-003",
+      "metric": "waste",
+      "value": 12.78,
+      "unit": "kg",
+      "timestamp": "2026-08-28T11:03:38.894Z",
+      "created_at": "2026-08-28T11:03:38.897Z"
+    },
+    {
+      "id": "id-1787915019258-zgszf",
+      "device_code": "meter-001",
+      "metric": "electricity",
+      "value": 40.54,
+      "unit": "kWh",
+      "timestamp": "2026-08-28T11:03:39.258Z",
+      "created_at": "2026-08-28T11:03:39.258Z"
+    },
+    {
+      "id": "id-1787915019259-6qh71",
+      "device_code": "meter-002",
+      "metric": "water",
+      "value": 304.07,
+      "unit": "litres",
+      "timestamp": "2026-08-28T11:03:39.258Z",
+      "created_at": "2026-08-28T11:03:39.259Z"
+    },
+    {
+      "id": "id-1787915019260-8abh8",
+      "device_code": "meter-003",
+      "metric": "waste",
+      "value": 15.35,
+      "unit": "kg",
+      "timestamp": "2026-08-28T11:03:39.258Z",
+      "created_at": "2026-08-28T11:03:39.260Z"
+    },
+    {
+      "id": "id-1787915019850-7y4t4",
+      "device_code": "meter-001",
+      "metric": "electricity",
+      "value": 42.95,
+      "unit": "kWh",
+      "timestamp": "2026-08-28T11:03:39.850Z",
+      "created_at": "2026-08-28T11:03:39.850Z"
+    },
+    {
+      "id": "id-1787915019851-fzpxl",
+      "device_code": "meter-002",
+      "metric": "water",
+      "value": 279.18,
+      "unit": "litres",
+      "timestamp": "2026-08-28T11:03:39.850Z",
+      "created_at": "2026-08-28T11:03:39.851Z"
+    },
+    {
+      "id": "id-1787915019852-zqr20",
+      "device_code": "meter-003",
+      "metric": "waste",
+      "value": 9.98,
+      "unit": "kg",
+      "timestamp": "2026-08-28T11:03:39.850Z",
+      "created_at": "2026-08-28T11:03:39.852Z"
+    },
+    {
+      "id": "id-1787915020587-7bw8m",
+      "device_code": "meter-001",
+      "metric": "electricity",
+      "value": 47.83,
+      "unit": "kWh",
+      "timestamp": "2026-08-28T11:03:40.587Z",
+      "created_at": "2026-08-28T11:03:40.587Z"
+    },
+    {
+      "id": "id-1787915020588-e2x10",
+      "device_code": "meter-002",
+      "metric": "water",
+      "value": 249.51,
+      "unit": "litres",
+      "timestamp": "2026-08-28T11:03:40.587Z",
+      "created_at": "2026-08-28T11:03:40.588Z"
+    },
+    {
+      "id": "id-1787915020589-amy1k",
+      "device_code": "meter-003",
+      "metric": "waste",
+      "value": 10.87,
+      "unit": "kg",
+      "timestamp": "2026-08-28T11:03:40.587Z",
+      "created_at": "2026-08-28T11:03:40.589Z"
+    }
+  ],
+  "scenario_results": [
+    {
+      "id": "id-1787915056356-q822w",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 30,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 82,
+      "score_delta": 11,
+      "carbon_saved_tons": 1.95,
+      "cost_savings_usd": 705,
+      "created_at": "2026-08-28T11:04:16.356Z"
+    },
+    {
+      "id": "id-1787915056359-sqds8",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 30,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 82,
+      "score_delta": 11,
+      "carbon_saved_tons": 1.95,
+      "cost_savings_usd": 705,
+      "created_at": "2026-08-28T11:04:16.359Z"
+    },
+    {
+      "id": "id-1787917247222-her3z",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 30,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 82,
+      "score_delta": 11,
+      "carbon_saved_tons": 1.95,
+      "cost_savings_usd": 705,
+      "created_at": "2026-08-28T11:40:47.222Z"
+    },
+    {
+      "id": "id-1787917247226-gqnix",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 30,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 82,
+      "score_delta": 11,
+      "carbon_saved_tons": 1.95,
+      "cost_savings_usd": 705,
+      "created_at": "2026-08-28T11:40:47.226Z"
+    },
+    {
+      "id": "id-1787917253217-pryyz",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 33,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 83,
+      "score_delta": 12,
+      "carbon_saved_tons": 2.11,
+      "cost_savings_usd": 761,
+      "created_at": "2026-08-28T11:40:53.217Z"
+    },
+    {
+      "id": "id-1787917256362-u9e67",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 45,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 84,
+      "score_delta": 13,
+      "carbon_saved_tons": 2.77,
+      "cost_savings_usd": 985,
+      "created_at": "2026-08-28T11:40:56.362Z"
+    },
+    {
+      "id": "id-1787917257053-6jpce",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 46,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 84,
+      "score_delta": 13,
+      "carbon_saved_tons": 2.83,
+      "cost_savings_usd": 1004,
+      "created_at": "2026-08-28T11:40:57.053Z"
+    },
+    {
+      "id": "id-1787917257059-nretu",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 48,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 84,
+      "score_delta": 13,
+      "carbon_saved_tons": 2.94,
+      "cost_savings_usd": 1041,
+      "created_at": "2026-08-28T11:40:57.059Z"
+    },
+    {
+      "id": "id-1787917257068-edabb",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 49,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 84,
+      "score_delta": 13,
+      "carbon_saved_tons": 2.99,
+      "cost_savings_usd": 1060,
+      "created_at": "2026-08-28T11:40:57.068Z"
+    },
+    {
+      "id": "id-1787917257075-pyy5q",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 51,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 85,
+      "score_delta": 14,
+      "carbon_saved_tons": 3.1,
+      "cost_savings_usd": 1097,
+      "created_at": "2026-08-28T11:40:57.075Z"
+    },
+    {
+      "id": "id-1787917257083-twjxf",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 53,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 85,
+      "score_delta": 14,
+      "carbon_saved_tons": 3.21,
+      "cost_savings_usd": 1135,
+      "created_at": "2026-08-28T11:40:57.083Z"
+    },
+    {
+      "id": "id-1787917257089-lxf0i",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 55,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 85,
+      "score_delta": 14,
+      "carbon_saved_tons": 3.32,
+      "cost_savings_usd": 1172,
+      "created_at": "2026-08-28T11:40:57.089Z"
+    },
+    {
+      "id": "id-1787917257096-h6wuq",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 58,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 86,
+      "score_delta": 15,
+      "carbon_saved_tons": 3.48,
+      "cost_savings_usd": 1228,
+      "created_at": "2026-08-28T11:40:57.096Z"
+    },
+    {
+      "id": "id-1787917257111-l5lhx",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 60,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 86,
+      "score_delta": 15,
+      "carbon_saved_tons": 3.59,
+      "cost_savings_usd": 1266,
+      "created_at": "2026-08-28T11:40:57.111Z"
+    },
+    {
+      "id": "id-1787917257117-ks7v6",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 62,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 86,
+      "score_delta": 15,
+      "carbon_saved_tons": 3.7,
+      "cost_savings_usd": 1303,
+      "created_at": "2026-08-28T11:40:57.117Z"
+    },
+    {
+      "id": "id-1787917257124-rhgxw",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 64,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 87,
+      "score_delta": 16,
+      "carbon_saved_tons": 3.81,
+      "cost_savings_usd": 1340,
+      "created_at": "2026-08-28T11:40:57.124Z"
+    },
+    {
+      "id": "id-1787917257131-nrs9b",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 67,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 87,
+      "score_delta": 16,
+      "carbon_saved_tons": 3.98,
+      "cost_savings_usd": 1396,
+      "created_at": "2026-08-28T11:40:57.131Z"
+    },
+    {
+      "id": "id-1787917257138-yenui",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 70,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 87,
+      "score_delta": 16,
+      "carbon_saved_tons": 4.14,
+      "cost_savings_usd": 1452,
+      "created_at": "2026-08-28T11:40:57.138Z"
+    },
+    {
+      "id": "id-1787917257145-wje8l",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 73,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 88,
+      "score_delta": 17,
+      "carbon_saved_tons": 4.31,
+      "cost_savings_usd": 1508,
+      "created_at": "2026-08-28T11:40:57.145Z"
+    },
+    {
+      "id": "id-1787917257152-npczq",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 76,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 88,
+      "score_delta": 17,
+      "carbon_saved_tons": 4.47,
+      "cost_savings_usd": 1564,
+      "created_at": "2026-08-28T11:40:57.152Z"
+    },
+    {
+      "id": "id-1787917257159-tdui0",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 79,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 88,
+      "score_delta": 17,
+      "carbon_saved_tons": 4.64,
+      "cost_savings_usd": 1620,
+      "created_at": "2026-08-28T11:40:57.159Z"
+    },
+    {
+      "id": "id-1787917257165-9etf3",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 82,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 89,
+      "score_delta": 18,
+      "carbon_saved_tons": 4.8,
+      "cost_savings_usd": 1676,
+      "created_at": "2026-08-28T11:40:57.165Z"
+    },
+    {
+      "id": "id-1787917257173-97qhv",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 84,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 89,
+      "score_delta": 18,
+      "carbon_saved_tons": 4.91,
+      "cost_savings_usd": 1714,
+      "created_at": "2026-08-28T11:40:57.173Z"
+    },
+    {
+      "id": "id-1787917257187-5w1y7",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 87,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 89,
+      "score_delta": 18,
+      "carbon_saved_tons": 5.07,
+      "cost_savings_usd": 1770,
+      "created_at": "2026-08-28T11:40:57.187Z"
+    },
+    {
+      "id": "id-1787917257194-1cicd",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 89,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 90,
+      "score_delta": 19,
+      "carbon_saved_tons": 5.18,
+      "cost_savings_usd": 1807,
+      "created_at": "2026-08-28T11:40:57.194Z"
+    },
+    {
+      "id": "id-1787917257201-hxt6o",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 91,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 90,
+      "score_delta": 19,
+      "carbon_saved_tons": 5.29,
+      "cost_savings_usd": 1845,
+      "created_at": "2026-08-28T11:40:57.201Z"
+    },
+    {
+      "id": "id-1787917257208-vfykc",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 92,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 90,
+      "score_delta": 19,
+      "carbon_saved_tons": 5.35,
+      "cost_savings_usd": 1863,
+      "created_at": "2026-08-28T11:40:57.208Z"
+    },
+    {
+      "id": "id-1787917257214-7j0s2",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 93,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 90,
+      "score_delta": 19,
+      "carbon_saved_tons": 5.4,
+      "cost_savings_usd": 1882,
+      "created_at": "2026-08-28T11:40:57.214Z"
+    },
+    {
+      "id": "id-1787917257222-f20hz",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 95,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 91,
+      "score_delta": 20,
+      "carbon_saved_tons": 5.51,
+      "cost_savings_usd": 1919,
+      "created_at": "2026-08-28T11:40:57.222Z"
+    },
+    {
+      "id": "id-1787917257228-abkzz",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 96,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 91,
+      "score_delta": 20,
+      "carbon_saved_tons": 5.57,
+      "cost_savings_usd": 1938,
+      "created_at": "2026-08-28T11:40:57.228Z"
+    },
+    {
+      "id": "id-1787917257235-663qn",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 97,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 91,
+      "score_delta": 20,
+      "carbon_saved_tons": 5.62,
+      "cost_savings_usd": 1956,
+      "created_at": "2026-08-28T11:40:57.235Z"
+    },
+    {
+      "id": "id-1787917257242-f3pod",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 98,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 91,
+      "score_delta": 20,
+      "carbon_saved_tons": 5.68,
+      "cost_savings_usd": 1975,
+      "created_at": "2026-08-28T11:40:57.242Z"
+    },
+    {
+      "id": "id-1787917257256-0hec3",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 99,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 91,
+      "score_delta": 20,
+      "carbon_saved_tons": 5.73,
+      "cost_savings_usd": 1994,
+      "created_at": "2026-08-28T11:40:57.256Z"
+    },
+    {
+      "id": "id-1787917257287-c1uhe",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 91,
+      "score_delta": 20,
+      "carbon_saved_tons": 5.79,
+      "cost_savings_usd": 2013,
+      "created_at": "2026-08-28T11:40:57.287Z"
+    },
+    {
+      "id": "id-1787917257850-w5ij4",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 94,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 90,
+      "score_delta": 19,
+      "carbon_saved_tons": 5.46,
+      "cost_savings_usd": 1900,
+      "created_at": "2026-08-28T11:40:57.850Z"
+    },
+    {
+      "id": "id-1787917257855-qw1a0",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 90,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 90,
+      "score_delta": 19,
+      "carbon_saved_tons": 5.24,
+      "cost_savings_usd": 1826,
+      "created_at": "2026-08-28T11:40:57.855Z"
+    },
+    {
+      "id": "id-1787917257867-3eted",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 86,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 89,
+      "score_delta": 18,
+      "carbon_saved_tons": 5.02,
+      "cost_savings_usd": 1751,
+      "created_at": "2026-08-28T11:40:57.867Z"
+    },
+    {
+      "id": "id-1787917257874-9f3wv",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 82,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 89,
+      "score_delta": 18,
+      "carbon_saved_tons": 4.8,
+      "cost_savings_usd": 1676,
+      "created_at": "2026-08-28T11:40:57.874Z"
+    },
+    {
+      "id": "id-1787917257880-gsacx",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 77,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 88,
+      "score_delta": 17,
+      "carbon_saved_tons": 4.53,
+      "cost_savings_usd": 1583,
+      "created_at": "2026-08-28T11:40:57.880Z"
+    },
+    {
+      "id": "id-1787917257888-hi3wp",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 72,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 88,
+      "score_delta": 17,
+      "carbon_saved_tons": 4.25,
+      "cost_savings_usd": 1490,
+      "created_at": "2026-08-28T11:40:57.888Z"
+    },
+    {
+      "id": "id-1787917257894-f5apr",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 68,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 87,
+      "score_delta": 16,
+      "carbon_saved_tons": 4.03,
+      "cost_savings_usd": 1415,
+      "created_at": "2026-08-28T11:40:57.894Z"
+    },
+    {
+      "id": "id-1787917257902-3omdv",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 63,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 86,
+      "score_delta": 15,
+      "carbon_saved_tons": 3.76,
+      "cost_savings_usd": 1321,
+      "created_at": "2026-08-28T11:40:57.902Z"
+    },
+    {
+      "id": "id-1787917257909-4ko7d",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 59,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 86,
+      "score_delta": 15,
+      "carbon_saved_tons": 3.54,
+      "cost_savings_usd": 1247,
+      "created_at": "2026-08-28T11:40:57.909Z"
+    },
+    {
+      "id": "id-1787917257923-282fv",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 54,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 85,
+      "score_delta": 14,
+      "carbon_saved_tons": 3.26,
+      "cost_savings_usd": 1153,
+      "created_at": "2026-08-28T11:40:57.923Z"
+    },
+    {
+      "id": "id-1787917257929-vc93d",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 50,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 84,
+      "score_delta": 13,
+      "carbon_saved_tons": 3.05,
+      "cost_savings_usd": 1079,
+      "created_at": "2026-08-28T11:40:57.929Z"
+    },
+    {
+      "id": "id-1787917257936-09zay",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 46,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 84,
+      "score_delta": 13,
+      "carbon_saved_tons": 2.83,
+      "cost_savings_usd": 1004,
+      "created_at": "2026-08-28T11:40:57.936Z"
+    },
+    {
+      "id": "id-1787917257943-16pez",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 42,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 83,
+      "score_delta": 12,
+      "carbon_saved_tons": 2.61,
+      "cost_savings_usd": 929,
+      "created_at": "2026-08-28T11:40:57.943Z"
+    },
+    {
+      "id": "id-1787917257950-42008",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 38,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 83,
+      "score_delta": 12,
+      "carbon_saved_tons": 2.39,
+      "cost_savings_usd": 855,
+      "created_at": "2026-08-28T11:40:57.950Z"
+    },
+    {
+      "id": "id-1787917257957-icdk0",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 35,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 83,
+      "score_delta": 12,
+      "carbon_saved_tons": 2.22,
+      "cost_savings_usd": 799,
+      "created_at": "2026-08-28T11:40:57.957Z"
+    },
+    {
+      "id": "id-1787917257964-md4o2",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 33,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 83,
+      "score_delta": 12,
+      "carbon_saved_tons": 2.11,
+      "cost_savings_usd": 761,
+      "created_at": "2026-08-28T11:40:57.964Z"
+    },
+    {
+      "id": "id-1787917257971-muc2s",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 31,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 82,
+      "score_delta": 11,
+      "carbon_saved_tons": 2,
+      "cost_savings_usd": 724,
+      "created_at": "2026-08-28T11:40:57.971Z"
+    },
+    {
+      "id": "id-1787917257978-8kgth",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 28,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 82,
+      "score_delta": 11,
+      "carbon_saved_tons": 1.84,
+      "cost_savings_usd": 668,
+      "created_at": "2026-08-28T11:40:57.978Z"
+    },
+    {
+      "id": "id-1787917257985-viiy9",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 27,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 82,
+      "score_delta": 11,
+      "carbon_saved_tons": 1.78,
+      "cost_savings_usd": 649,
+      "created_at": "2026-08-28T11:40:57.985Z"
+    },
+    {
+      "id": "id-1787917257992-heazm",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 25,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 81,
+      "score_delta": 10,
+      "carbon_saved_tons": 1.68,
+      "cost_savings_usd": 612,
+      "created_at": "2026-08-28T11:40:57.992Z"
+    },
+    {
+      "id": "id-1787917258006-9sjma",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 24,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 81,
+      "score_delta": 10,
+      "carbon_saved_tons": 1.62,
+      "cost_savings_usd": 593,
+      "created_at": "2026-08-28T11:40:58.006Z"
+    },
+    {
+      "id": "id-1787917258013-o981j",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 23,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 81,
+      "score_delta": 10,
+      "carbon_saved_tons": 1.57,
+      "cost_savings_usd": 574,
+      "created_at": "2026-08-28T11:40:58.013Z"
+    },
+    {
+      "id": "id-1787917258019-x4qw9",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 22,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 81,
+      "score_delta": 10,
+      "carbon_saved_tons": 1.51,
+      "cost_savings_usd": 556,
+      "created_at": "2026-08-28T11:40:58.019Z"
+    },
+    {
+      "id": "id-1787917258026-j0ruf",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 21,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 81,
+      "score_delta": 10,
+      "carbon_saved_tons": 1.46,
+      "cost_savings_usd": 537,
+      "created_at": "2026-08-28T11:40:58.026Z"
+    },
+    {
+      "id": "id-1787917258076-7vswl",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 20,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 81,
+      "score_delta": 10,
+      "carbon_saved_tons": 1.4,
+      "cost_savings_usd": 519,
+      "created_at": "2026-08-28T11:40:58.076Z"
+    },
+    {
+      "id": "id-1787917258436-t2tr2",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 21,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 81,
+      "score_delta": 10,
+      "carbon_saved_tons": 1.46,
+      "cost_savings_usd": 537,
+      "created_at": "2026-08-28T11:40:58.436Z"
+    },
+    {
+      "id": "id-1787917258502-uawkf",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 22,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 81,
+      "score_delta": 10,
+      "carbon_saved_tons": 1.51,
+      "cost_savings_usd": 556,
+      "created_at": "2026-08-28T11:40:58.502Z"
+    },
+    {
+      "id": "id-1787917258530-5s9ov",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 23,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 81,
+      "score_delta": 10,
+      "carbon_saved_tons": 1.57,
+      "cost_savings_usd": 574,
+      "created_at": "2026-08-28T11:40:58.530Z"
+    },
+    {
+      "id": "id-1787917258557-euu73",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 25,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 81,
+      "score_delta": 10,
+      "carbon_saved_tons": 1.68,
+      "cost_savings_usd": 612,
+      "created_at": "2026-08-28T11:40:58.557Z"
+    },
+    {
+      "id": "id-1787917258561-xp4y0",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 27,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 82,
+      "score_delta": 11,
+      "carbon_saved_tons": 1.78,
+      "cost_savings_usd": 649,
+      "created_at": "2026-08-28T11:40:58.561Z"
+    },
+    {
+      "id": "id-1787917258568-xn7qj",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 28,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 82,
+      "score_delta": 11,
+      "carbon_saved_tons": 1.84,
+      "cost_savings_usd": 668,
+      "created_at": "2026-08-28T11:40:58.568Z"
+    },
+    {
+      "id": "id-1787917258583-frrjt",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 30,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 82,
+      "score_delta": 11,
+      "carbon_saved_tons": 1.95,
+      "cost_savings_usd": 705,
+      "created_at": "2026-08-28T11:40:58.583Z"
+    },
+    {
+      "id": "id-1787917258589-nfoy3",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 32,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 82,
+      "score_delta": 11,
+      "carbon_saved_tons": 2.06,
+      "cost_savings_usd": 743,
+      "created_at": "2026-08-28T11:40:58.589Z"
+    },
+    {
+      "id": "id-1787917258596-odlep",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 34,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 83,
+      "score_delta": 12,
+      "carbon_saved_tons": 2.17,
+      "cost_savings_usd": 780,
+      "created_at": "2026-08-28T11:40:58.596Z"
+    },
+    {
+      "id": "id-1787917258603-1rucb",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 38,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 83,
+      "score_delta": 12,
+      "carbon_saved_tons": 2.39,
+      "cost_savings_usd": 855,
+      "created_at": "2026-08-28T11:40:58.603Z"
+    },
+    {
+      "id": "id-1787917258610-ss5p2",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 41,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 83,
+      "score_delta": 12,
+      "carbon_saved_tons": 2.55,
+      "cost_savings_usd": 911,
+      "created_at": "2026-08-28T11:40:58.610Z"
+    },
+    {
+      "id": "id-1787917258617-47zdb",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 43,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 83,
+      "score_delta": 12,
+      "carbon_saved_tons": 2.66,
+      "cost_savings_usd": 948,
+      "created_at": "2026-08-28T11:40:58.617Z"
+    },
+    {
+      "id": "id-1787917258624-992er",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 46,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 84,
+      "score_delta": 13,
+      "carbon_saved_tons": 2.83,
+      "cost_savings_usd": 1004,
+      "created_at": "2026-08-28T11:40:58.624Z"
+    },
+    {
+      "id": "id-1787917258631-ltqtp",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 48,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 84,
+      "score_delta": 13,
+      "carbon_saved_tons": 2.94,
+      "cost_savings_usd": 1041,
+      "created_at": "2026-08-28T11:40:58.631Z"
+    },
+    {
+      "id": "id-1787917258638-o5zus",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 51,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 85,
+      "score_delta": 14,
+      "carbon_saved_tons": 3.1,
+      "cost_savings_usd": 1097,
+      "created_at": "2026-08-28T11:40:58.638Z"
+    },
+    {
+      "id": "id-1787917258644-de1yb",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 53,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 85,
+      "score_delta": 14,
+      "carbon_saved_tons": 3.21,
+      "cost_savings_usd": 1135,
+      "created_at": "2026-08-28T11:40:58.644Z"
+    },
+    {
+      "id": "id-1787917258659-g4uuk",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 56,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 85,
+      "score_delta": 14,
+      "carbon_saved_tons": 3.37,
+      "cost_savings_usd": 1191,
+      "created_at": "2026-08-28T11:40:58.659Z"
+    },
+    {
+      "id": "id-1787917258666-8u75c",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 58,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 86,
+      "score_delta": 15,
+      "carbon_saved_tons": 3.48,
+      "cost_savings_usd": 1228,
+      "created_at": "2026-08-28T11:40:58.666Z"
+    },
+    {
+      "id": "id-1787917258672-23mhz",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 59,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 86,
+      "score_delta": 15,
+      "carbon_saved_tons": 3.54,
+      "cost_savings_usd": 1247,
+      "created_at": "2026-08-28T11:40:58.672Z"
+    },
+    {
+      "id": "id-1787917258679-p9lsw",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 61,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 86,
+      "score_delta": 15,
+      "carbon_saved_tons": 3.65,
+      "cost_savings_usd": 1284,
+      "created_at": "2026-08-28T11:40:58.679Z"
+    },
+    {
+      "id": "id-1787917258686-opjuh",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 63,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 86,
+      "score_delta": 15,
+      "carbon_saved_tons": 3.76,
+      "cost_savings_usd": 1321,
+      "created_at": "2026-08-28T11:40:58.686Z"
+    },
+    {
+      "id": "id-1787917258693-puycj",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 65,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 87,
+      "score_delta": 16,
+      "carbon_saved_tons": 3.87,
+      "cost_savings_usd": 1359,
+      "created_at": "2026-08-28T11:40:58.693Z"
+    },
+    {
+      "id": "id-1787917258700-lq100",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 66,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 87,
+      "score_delta": 16,
+      "carbon_saved_tons": 3.92,
+      "cost_savings_usd": 1378,
+      "created_at": "2026-08-28T11:40:58.700Z"
+    },
+    {
+      "id": "id-1787917258707-19pqn",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 67,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 87,
+      "score_delta": 16,
+      "carbon_saved_tons": 3.98,
+      "cost_savings_usd": 1396,
+      "created_at": "2026-08-28T11:40:58.707Z"
+    },
+    {
+      "id": "id-1787917258721-sra1y",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 68,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 87,
+      "score_delta": 16,
+      "carbon_saved_tons": 4.03,
+      "cost_savings_usd": 1415,
+      "created_at": "2026-08-28T11:40:58.721Z"
+    },
+    {
+      "id": "id-1787917258735-sizbz",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 69,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 87,
+      "score_delta": 16,
+      "carbon_saved_tons": 4.09,
+      "cost_savings_usd": 1434,
+      "created_at": "2026-08-28T11:40:58.735Z"
+    },
+    {
+      "id": "id-1787917258742-gvca2",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 70,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 87,
+      "score_delta": 16,
+      "carbon_saved_tons": 4.14,
+      "cost_savings_usd": 1452,
+      "created_at": "2026-08-28T11:40:58.742Z"
+    },
+    {
+      "id": "id-1787917258756-yve6w",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 71,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 88,
+      "score_delta": 17,
+      "carbon_saved_tons": 4.2,
+      "cost_savings_usd": 1471,
+      "created_at": "2026-08-28T11:40:58.756Z"
+    },
+    {
+      "id": "id-1787917258762-ml0y8",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 72,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 88,
+      "score_delta": 17,
+      "carbon_saved_tons": 4.25,
+      "cost_savings_usd": 1490,
+      "created_at": "2026-08-28T11:40:58.762Z"
+    },
+    {
+      "id": "id-1787917258776-k222f",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 73,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 88,
+      "score_delta": 17,
+      "carbon_saved_tons": 4.31,
+      "cost_savings_usd": 1508,
+      "created_at": "2026-08-28T11:40:58.776Z"
+    },
+    {
+      "id": "id-1787917258783-c37r9",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 74,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 88,
+      "score_delta": 17,
+      "carbon_saved_tons": 4.36,
+      "cost_savings_usd": 1527,
+      "created_at": "2026-08-28T11:40:58.784Z"
+    },
+    {
+      "id": "id-1787917258797-fwctk",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 75,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 88,
+      "score_delta": 17,
+      "carbon_saved_tons": 4.42,
+      "cost_savings_usd": 1546,
+      "created_at": "2026-08-28T11:40:58.797Z"
+    },
+    {
+      "id": "id-1787917258811-wa3x1",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 76,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 88,
+      "score_delta": 17,
+      "carbon_saved_tons": 4.47,
+      "cost_savings_usd": 1564,
+      "created_at": "2026-08-28T11:40:58.811Z"
+    },
+    {
+      "id": "id-1787917258841-ku33f",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 77,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 88,
+      "score_delta": 17,
+      "carbon_saved_tons": 4.53,
+      "cost_savings_usd": 1583,
+      "created_at": "2026-08-28T11:40:58.841Z"
+    },
+    {
+      "id": "id-1787917258852-hex9l",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 78,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 88,
+      "score_delta": 17,
+      "carbon_saved_tons": 4.58,
+      "cost_savings_usd": 1602,
+      "created_at": "2026-08-28T11:40:58.852Z"
+    },
+    {
+      "id": "id-1787917258926-lv7fk",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 79,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 88,
+      "score_delta": 17,
+      "carbon_saved_tons": 4.64,
+      "cost_savings_usd": 1620,
+      "created_at": "2026-08-28T11:40:58.926Z"
+    },
+    {
+      "id": "id-1787917259063-duq8i",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 80,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 88,
+      "score_delta": 17,
+      "carbon_saved_tons": 4.69,
+      "cost_savings_usd": 1639,
+      "created_at": "2026-08-28T11:40:59.063Z"
+    },
+    {
+      "id": "id-1787917259093-y4dq6",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 81,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 88,
+      "score_delta": 17,
+      "carbon_saved_tons": 4.74,
+      "cost_savings_usd": 1658,
+      "created_at": "2026-08-28T11:40:59.093Z"
+    },
+    {
+      "id": "id-1787917259099-cmu87",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 82,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 89,
+      "score_delta": 18,
+      "carbon_saved_tons": 4.8,
+      "cost_savings_usd": 1676,
+      "created_at": "2026-08-28T11:40:59.099Z"
+    },
+    {
+      "id": "id-1787917259111-bef6i",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 83,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 89,
+      "score_delta": 18,
+      "carbon_saved_tons": 4.85,
+      "cost_savings_usd": 1695,
+      "created_at": "2026-08-28T11:40:59.111Z"
+    },
+    {
+      "id": "id-1787917259134-xfwlr",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 86,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 89,
+      "score_delta": 18,
+      "carbon_saved_tons": 5.02,
+      "cost_savings_usd": 1751,
+      "created_at": "2026-08-28T11:40:59.134Z"
+    },
+    {
+      "id": "id-1787917259140-al7f0",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 87,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 89,
+      "score_delta": 18,
+      "carbon_saved_tons": 5.07,
+      "cost_savings_usd": 1770,
+      "created_at": "2026-08-28T11:40:59.140Z"
+    },
+    {
+      "id": "id-1787917259147-glxlz",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 89,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 90,
+      "score_delta": 19,
+      "carbon_saved_tons": 5.18,
+      "cost_savings_usd": 1807,
+      "created_at": "2026-08-28T11:40:59.147Z"
+    },
+    {
+      "id": "id-1787917259154-fktqf",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 90,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 90,
+      "score_delta": 19,
+      "carbon_saved_tons": 5.24,
+      "cost_savings_usd": 1826,
+      "created_at": "2026-08-28T11:40:59.154Z"
+    },
+    {
+      "id": "id-1787917259175-9owkh",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 93,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 90,
+      "score_delta": 19,
+      "carbon_saved_tons": 5.4,
+      "cost_savings_usd": 1882,
+      "created_at": "2026-08-28T11:40:59.175Z"
+    },
+    {
+      "id": "id-1787917259196-duqlo",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 95,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 91,
+      "score_delta": 20,
+      "carbon_saved_tons": 5.51,
+      "cost_savings_usd": 1919,
+      "created_at": "2026-08-28T11:40:59.196Z"
+    },
+    {
+      "id": "id-1787917259200-o2pzt",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 97,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 91,
+      "score_delta": 20,
+      "carbon_saved_tons": 5.62,
+      "cost_savings_usd": 1956,
+      "created_at": "2026-08-28T11:40:59.200Z"
+    },
+    {
+      "id": "id-1787917259207-jh862",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 98,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 91,
+      "score_delta": 20,
+      "carbon_saved_tons": 5.68,
+      "cost_savings_usd": 1975,
+      "created_at": "2026-08-28T11:40:59.207Z"
+    },
+    {
+      "id": "id-1787917259214-z5d26",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 99,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 91,
+      "score_delta": 20,
+      "carbon_saved_tons": 5.73,
+      "cost_savings_usd": 1994,
+      "created_at": "2026-08-28T11:40:59.214Z"
+    },
+    {
+      "id": "id-1787917259221-ecwe6",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 40,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 91,
+      "score_delta": 20,
+      "carbon_saved_tons": 5.79,
+      "cost_savings_usd": 2013,
+      "created_at": "2026-08-28T11:40:59.221Z"
+    },
+    {
+      "id": "id-1787917261643-v6fdc",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 39,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 91,
+      "score_delta": 20,
+      "carbon_saved_tons": 5.79,
+      "cost_savings_usd": 2011,
+      "created_at": "2026-08-28T11:41:01.643Z"
+    },
+    {
+      "id": "id-1787917261649-mod1b",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 36,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 91,
+      "score_delta": 20,
+      "carbon_saved_tons": 5.78,
+      "cost_savings_usd": 2004,
+      "created_at": "2026-08-28T11:41:01.649Z"
+    },
+    {
+      "id": "id-1787917261658-3hy2k",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 33,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 91,
+      "score_delta": 20,
+      "carbon_saved_tons": 5.78,
+      "cost_savings_usd": 1997,
+      "created_at": "2026-08-28T11:41:01.658Z"
+    },
+    {
+      "id": "id-1787917261665-vwygq",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 30,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 91,
+      "score_delta": 20,
+      "carbon_saved_tons": 5.78,
+      "cost_savings_usd": 1989,
+      "created_at": "2026-08-28T11:41:01.665Z"
+    },
+    {
+      "id": "id-1787917261672-9mk0b",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 27,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 90,
+      "score_delta": 19,
+      "carbon_saved_tons": 5.78,
+      "cost_savings_usd": 1982,
+      "created_at": "2026-08-28T11:41:01.672Z"
+    },
+    {
+      "id": "id-1787917261679-aya2b",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 24,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 90,
+      "score_delta": 19,
+      "carbon_saved_tons": 5.78,
+      "cost_savings_usd": 1975,
+      "created_at": "2026-08-28T11:41:01.679Z"
+    },
+    {
+      "id": "id-1787917261693-sjwyv",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 21,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 90,
+      "score_delta": 19,
+      "carbon_saved_tons": 5.78,
+      "cost_savings_usd": 1968,
+      "created_at": "2026-08-28T11:41:01.693Z"
+    },
+    {
+      "id": "id-1787917261700-f7gjf",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 17,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 90,
+      "score_delta": 19,
+      "carbon_saved_tons": 5.78,
+      "cost_savings_usd": 1958,
+      "created_at": "2026-08-28T11:41:01.700Z"
+    },
+    {
+      "id": "id-1787917261707-uqtbr",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 15,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 90,
+      "score_delta": 19,
+      "carbon_saved_tons": 5.78,
+      "cost_savings_usd": 1954,
+      "created_at": "2026-08-28T11:41:01.707Z"
+    },
+    {
+      "id": "id-1787917261714-xl1wz",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 12,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 89,
+      "score_delta": 18,
+      "carbon_saved_tons": 5.78,
+      "cost_savings_usd": 1947,
+      "created_at": "2026-08-28T11:41:01.714Z"
+    },
+    {
+      "id": "id-1787917261721-d08mx",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 9,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 89,
+      "score_delta": 18,
+      "carbon_saved_tons": 5.78,
+      "cost_savings_usd": 1939,
+      "created_at": "2026-08-28T11:41:01.721Z"
+    },
+    {
+      "id": "id-1787917261728-jqlq5",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 7,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 89,
+      "score_delta": 18,
+      "carbon_saved_tons": 5.78,
+      "cost_savings_usd": 1935,
+      "created_at": "2026-08-28T11:41:01.728Z"
+    },
+    {
+      "id": "id-1787917261735-a2bi8",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 5,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 89,
+      "score_delta": 18,
+      "carbon_saved_tons": 5.78,
+      "cost_savings_usd": 1930,
+      "created_at": "2026-08-28T11:41:01.735Z"
+    },
+    {
+      "id": "id-1787917261742-qmhdl",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 3,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 89,
+      "score_delta": 18,
+      "carbon_saved_tons": 5.78,
+      "cost_savings_usd": 1925,
+      "created_at": "2026-08-28T11:41:01.742Z"
+    },
+    {
+      "id": "id-1787917261749-9n88p",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 1,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 89,
+      "score_delta": 18,
+      "carbon_saved_tons": 5.78,
+      "cost_savings_usd": 1920,
+      "created_at": "2026-08-28T11:41:01.749Z"
+    },
+    {
+      "id": "id-1787917261755-qa447",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 0,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 89,
+      "score_delta": 18,
+      "carbon_saved_tons": 5.78,
+      "cost_savings_usd": 1918,
+      "created_at": "2026-08-28T11:41:01.755Z"
+    },
+    {
+      "id": "id-1787917263342-krrri",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 72,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 93,
+      "score_delta": 22,
+      "carbon_saved_tons": 5.79,
+      "cost_savings_usd": 2089,
+      "created_at": "2026-08-28T11:41:03.342Z"
+    },
+    {
+      "id": "id-1787917264056-obdk2",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 73,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 93,
+      "score_delta": 22,
+      "carbon_saved_tons": 5.79,
+      "cost_savings_usd": 2092,
+      "created_at": "2026-08-28T11:41:04.056Z"
+    },
+    {
+      "id": "id-1787917264068-0xkub",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 74,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 93,
+      "score_delta": 22,
+      "carbon_saved_tons": 5.79,
+      "cost_savings_usd": 2094,
+      "created_at": "2026-08-28T11:41:04.068Z"
+    },
+    {
+      "id": "id-1787917264081-n055q",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 75,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 94,
+      "score_delta": 23,
+      "carbon_saved_tons": 5.79,
+      "cost_savings_usd": 2097,
+      "created_at": "2026-08-28T11:41:04.081Z"
+    },
+    {
+      "id": "id-1787917264088-4eqvz",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 76,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 94,
+      "score_delta": 23,
+      "carbon_saved_tons": 5.8,
+      "cost_savings_usd": 2099,
+      "created_at": "2026-08-28T11:41:04.088Z"
+    },
+    {
+      "id": "id-1787917264095-t8r34",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 78,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 94,
+      "score_delta": 23,
+      "carbon_saved_tons": 5.8,
+      "cost_savings_usd": 2104,
+      "created_at": "2026-08-28T11:41:04.095Z"
+    },
+    {
+      "id": "id-1787917264102-1glwo",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 79,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 94,
+      "score_delta": 23,
+      "carbon_saved_tons": 5.8,
+      "cost_savings_usd": 2106,
+      "created_at": "2026-08-28T11:41:04.102Z"
+    },
+    {
+      "id": "id-1787917264109-cj1be",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 80,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 94,
+      "score_delta": 23,
+      "carbon_saved_tons": 5.8,
+      "cost_savings_usd": 2108,
+      "created_at": "2026-08-28T11:41:04.109Z"
+    },
+    {
+      "id": "id-1787917264116-9doxf",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 81,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 94,
+      "score_delta": 23,
+      "carbon_saved_tons": 5.8,
+      "cost_savings_usd": 2111,
+      "created_at": "2026-08-28T11:41:04.116Z"
+    },
+    {
+      "id": "id-1787917264130-pyfd0",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 83,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 94,
+      "score_delta": 23,
+      "carbon_saved_tons": 5.8,
+      "cost_savings_usd": 2116,
+      "created_at": "2026-08-28T11:41:04.130Z"
+    },
+    {
+      "id": "id-1787917264137-f6ap9",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 84,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 94,
+      "score_delta": 23,
+      "carbon_saved_tons": 5.8,
+      "cost_savings_usd": 2118,
+      "created_at": "2026-08-28T11:41:04.137Z"
+    },
+    {
+      "id": "id-1787917264144-qc1q9",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 86,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 94,
+      "score_delta": 23,
+      "carbon_saved_tons": 5.8,
+      "cost_savings_usd": 2123,
+      "created_at": "2026-08-28T11:41:04.144Z"
+    },
+    {
+      "id": "id-1787917264151-kfyxn",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 88,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 94,
+      "score_delta": 23,
+      "carbon_saved_tons": 5.8,
+      "cost_savings_usd": 2127,
+      "created_at": "2026-08-28T11:41:04.151Z"
+    },
+    {
+      "id": "id-1787917264158-i0itp",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 90,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 94,
+      "score_delta": 23,
+      "carbon_saved_tons": 5.8,
+      "cost_savings_usd": 2132,
+      "created_at": "2026-08-28T11:41:04.158Z"
+    },
+    {
+      "id": "id-1787917264164-dq5bz",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 91,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 94,
+      "score_delta": 23,
+      "carbon_saved_tons": 5.8,
+      "cost_savings_usd": 2135,
+      "created_at": "2026-08-28T11:41:04.165Z"
+    },
+    {
+      "id": "id-1787917264171-t8lsg",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 92,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 94,
+      "score_delta": 23,
+      "carbon_saved_tons": 5.8,
+      "cost_savings_usd": 2137,
+      "created_at": "2026-08-28T11:41:04.171Z"
+    },
+    {
+      "id": "id-1787917264178-9rmuz",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 93,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 95,
+      "score_delta": 24,
+      "carbon_saved_tons": 5.8,
+      "cost_savings_usd": 2139,
+      "created_at": "2026-08-28T11:41:04.178Z"
+    },
+    {
+      "id": "id-1787917264185-pofbi",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 94,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 95,
+      "score_delta": 24,
+      "carbon_saved_tons": 5.8,
+      "cost_savings_usd": 2142,
+      "created_at": "2026-08-28T11:41:04.185Z"
+    },
+    {
+      "id": "id-1787917264192-16jiz",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 95,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 95,
+      "score_delta": 24,
+      "carbon_saved_tons": 5.8,
+      "cost_savings_usd": 2144,
+      "created_at": "2026-08-28T11:41:04.192Z"
+    },
+    {
+      "id": "id-1787917264199-co2vf",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 96,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 95,
+      "score_delta": 24,
+      "carbon_saved_tons": 5.8,
+      "cost_savings_usd": 2146,
+      "created_at": "2026-08-28T11:41:04.199Z"
+    },
+    {
+      "id": "id-1787917264213-f39sr",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 97,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 95,
+      "score_delta": 24,
+      "carbon_saved_tons": 5.8,
+      "cost_savings_usd": 2149,
+      "created_at": "2026-08-28T11:41:04.213Z"
+    },
+    {
+      "id": "id-1787917264221-zxbyg",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 98,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 95,
+      "score_delta": 24,
+      "carbon_saved_tons": 5.8,
+      "cost_savings_usd": 2151,
+      "created_at": "2026-08-28T11:41:04.221Z"
+    },
+    {
+      "id": "id-1787917264234-cqx2k",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 99,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 95,
+      "score_delta": 24,
+      "carbon_saved_tons": 5.8,
+      "cost_savings_usd": 2154,
+      "created_at": "2026-08-28T11:41:04.234Z"
+    },
+    {
+      "id": "id-1787917264248-efmt4",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 95,
+      "score_delta": 24,
+      "carbon_saved_tons": 5.8,
+      "cost_savings_usd": 2156,
+      "created_at": "2026-08-28T11:41:04.248Z"
+    },
+    {
+      "id": "id-1787917265433-qer6n",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 26
+      },
+      "simulated_score": 93,
+      "score_delta": 22,
+      "carbon_saved_tons": 5.66,
+      "cost_savings_usd": 2132,
+      "created_at": "2026-08-28T11:41:05.433Z"
+    },
+    {
+      "id": "id-1787917265644-mh9hd",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 25
+      },
+      "simulated_score": 93,
+      "score_delta": 22,
+      "carbon_saved_tons": 5.65,
+      "cost_savings_usd": 2131,
+      "created_at": "2026-08-28T11:41:05.644Z"
+    },
+    {
+      "id": "id-1787917265651-wb3po",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 22
+      },
+      "simulated_score": 92,
+      "score_delta": 21,
+      "carbon_saved_tons": 5.63,
+      "cost_savings_usd": 2128,
+      "created_at": "2026-08-28T11:41:05.651Z"
+    },
+    {
+      "id": "id-1787917265658-dzph3",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 20
+      },
+      "simulated_score": 92,
+      "score_delta": 21,
+      "carbon_saved_tons": 5.62,
+      "cost_savings_usd": 2126,
+      "created_at": "2026-08-28T11:41:05.658Z"
+    },
+    {
+      "id": "id-1787917265665-tlnxk",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 18
+      },
+      "simulated_score": 92,
+      "score_delta": 21,
+      "carbon_saved_tons": 5.61,
+      "cost_savings_usd": 2124,
+      "created_at": "2026-08-28T11:41:05.665Z"
+    },
+    {
+      "id": "id-1787917265680-exe4o",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 16
+      },
+      "simulated_score": 92,
+      "score_delta": 21,
+      "carbon_saved_tons": 5.6,
+      "cost_savings_usd": 2122,
+      "created_at": "2026-08-28T11:41:05.680Z"
+    },
+    {
+      "id": "id-1787917265686-y9vq9",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 13
+      },
+      "simulated_score": 91,
+      "score_delta": 20,
+      "carbon_saved_tons": 5.58,
+      "cost_savings_usd": 2119,
+      "created_at": "2026-08-28T11:41:05.686Z"
+    },
+    {
+      "id": "id-1787917265693-ms9wv",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 11
+      },
+      "simulated_score": 91,
+      "score_delta": 20,
+      "carbon_saved_tons": 5.57,
+      "cost_savings_usd": 2117,
+      "created_at": "2026-08-28T11:41:05.693Z"
+    },
+    {
+      "id": "id-1787917265700-5t9ld",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 9
+      },
+      "simulated_score": 91,
+      "score_delta": 20,
+      "carbon_saved_tons": 5.56,
+      "cost_savings_usd": 2115,
+      "created_at": "2026-08-28T11:41:05.700Z"
+    },
+    {
+      "id": "id-1787917265707-mccdc",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 7
+      },
+      "simulated_score": 91,
+      "score_delta": 20,
+      "carbon_saved_tons": 5.54,
+      "cost_savings_usd": 2113,
+      "created_at": "2026-08-28T11:41:05.707Z"
+    },
+    {
+      "id": "id-1787917265713-jnppq",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 5
+      },
+      "simulated_score": 91,
+      "score_delta": 20,
+      "carbon_saved_tons": 5.53,
+      "cost_savings_usd": 2111,
+      "created_at": "2026-08-28T11:41:05.713Z"
+    },
+    {
+      "id": "id-1787917265720-r282t",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 3
+      },
+      "simulated_score": 91,
+      "score_delta": 20,
+      "carbon_saved_tons": 5.52,
+      "cost_savings_usd": 2109,
+      "created_at": "2026-08-28T11:41:05.720Z"
+    },
+    {
+      "id": "id-1787917265727-2pkkw",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 1
+      },
+      "simulated_score": 90,
+      "score_delta": 19,
+      "carbon_saved_tons": 5.51,
+      "cost_savings_usd": 2107,
+      "created_at": "2026-08-28T11:41:05.728Z"
+    },
+    {
+      "id": "id-1787917265734-7r415",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 0
+      },
+      "simulated_score": 90,
+      "score_delta": 19,
+      "carbon_saved_tons": 5.5,
+      "cost_savings_usd": 2106,
+      "created_at": "2026-08-28T11:41:05.734Z"
+    },
+    {
+      "id": "id-1787917266071-5f0ro",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 3
+      },
+      "simulated_score": 91,
+      "score_delta": 20,
+      "carbon_saved_tons": 5.52,
+      "cost_savings_usd": 2109,
+      "created_at": "2026-08-28T11:41:06.071Z"
+    },
+    {
+      "id": "id-1787917266075-a8rpw",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 6
+      },
+      "simulated_score": 91,
+      "score_delta": 20,
+      "carbon_saved_tons": 5.54,
+      "cost_savings_usd": 2112,
+      "created_at": "2026-08-28T11:41:06.075Z"
+    },
+    {
+      "id": "id-1787917266089-kl3yh",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 8
+      },
+      "simulated_score": 91,
+      "score_delta": 20,
+      "carbon_saved_tons": 5.55,
+      "cost_savings_usd": 2114,
+      "created_at": "2026-08-28T11:41:06.089Z"
+    },
+    {
+      "id": "id-1787917266096-5ruum",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 11
+      },
+      "simulated_score": 91,
+      "score_delta": 20,
+      "carbon_saved_tons": 5.57,
+      "cost_savings_usd": 2117,
+      "created_at": "2026-08-28T11:41:06.096Z"
+    },
+    {
+      "id": "id-1787917266102-ij2zq",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 13
+      },
+      "simulated_score": 91,
+      "score_delta": 20,
+      "carbon_saved_tons": 5.58,
+      "cost_savings_usd": 2119,
+      "created_at": "2026-08-28T11:41:06.102Z"
+    },
+    {
+      "id": "id-1787917266110-cra14",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 15
+      },
+      "simulated_score": 92,
+      "score_delta": 21,
+      "carbon_saved_tons": 5.59,
+      "cost_savings_usd": 2121,
+      "created_at": "2026-08-28T11:41:06.110Z"
+    },
+    {
+      "id": "id-1787917266116-1u0s2",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 17
+      },
+      "simulated_score": 92,
+      "score_delta": 21,
+      "carbon_saved_tons": 5.6,
+      "cost_savings_usd": 2123,
+      "created_at": "2026-08-28T11:41:06.116Z"
+    },
+    {
+      "id": "id-1787917266123-8edjh",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 19
+      },
+      "simulated_score": 92,
+      "score_delta": 21,
+      "carbon_saved_tons": 5.62,
+      "cost_savings_usd": 2125,
+      "created_at": "2026-08-28T11:41:06.123Z"
+    },
+    {
+      "id": "id-1787917266130-ej6ot",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 20
+      },
+      "simulated_score": 92,
+      "score_delta": 21,
+      "carbon_saved_tons": 5.62,
+      "cost_savings_usd": 2126,
+      "created_at": "2026-08-28T11:41:06.130Z"
+    },
+    {
+      "id": "id-1787917266137-c4zdy",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 22
+      },
+      "simulated_score": 92,
+      "score_delta": 21,
+      "carbon_saved_tons": 5.63,
+      "cost_savings_usd": 2128,
+      "created_at": "2026-08-28T11:41:06.137Z"
+    },
+    {
+      "id": "id-1787917266144-ktr4g",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 23
+      },
+      "simulated_score": 92,
+      "score_delta": 21,
+      "carbon_saved_tons": 5.64,
+      "cost_savings_usd": 2129,
+      "created_at": "2026-08-28T11:41:06.144Z"
+    },
+    {
+      "id": "id-1787917266151-r2024",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 24
+      },
+      "simulated_score": 93,
+      "score_delta": 22,
+      "carbon_saved_tons": 5.65,
+      "cost_savings_usd": 2130,
+      "created_at": "2026-08-28T11:41:06.151Z"
+    },
+    {
+      "id": "id-1787917266158-wbhmg",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 25
+      },
+      "simulated_score": 93,
+      "score_delta": 22,
+      "carbon_saved_tons": 5.65,
+      "cost_savings_usd": 2131,
+      "created_at": "2026-08-28T11:41:06.158Z"
+    },
+    {
+      "id": "id-1787917266172-vuxkg",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 27
+      },
+      "simulated_score": 93,
+      "score_delta": 22,
+      "carbon_saved_tons": 5.66,
+      "cost_savings_usd": 2133,
+      "created_at": "2026-08-28T11:41:06.172Z"
+    },
+    {
+      "id": "id-1787917266179-jlg6a",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 28
+      },
+      "simulated_score": 93,
+      "score_delta": 22,
+      "carbon_saved_tons": 5.67,
+      "cost_savings_usd": 2134,
+      "created_at": "2026-08-28T11:41:06.179Z"
+    },
+    {
+      "id": "id-1787917266186-utztn",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 30
+      },
+      "simulated_score": 93,
+      "score_delta": 22,
+      "carbon_saved_tons": 5.68,
+      "cost_savings_usd": 2136,
+      "created_at": "2026-08-28T11:41:06.186Z"
+    },
+    {
+      "id": "id-1787917266192-waqic",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 31
+      },
+      "simulated_score": 93,
+      "score_delta": 22,
+      "carbon_saved_tons": 5.69,
+      "cost_savings_usd": 2137,
+      "created_at": "2026-08-28T11:41:06.192Z"
+    },
+    {
+      "id": "id-1787917266199-pbqpf",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 33
+      },
+      "simulated_score": 94,
+      "score_delta": 23,
+      "carbon_saved_tons": 5.7,
+      "cost_savings_usd": 2139,
+      "created_at": "2026-08-28T11:41:06.199Z"
+    },
+    {
+      "id": "id-1787917266206-giulq",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 34
+      },
+      "simulated_score": 94,
+      "score_delta": 23,
+      "carbon_saved_tons": 5.71,
+      "cost_savings_usd": 2140,
+      "created_at": "2026-08-28T11:41:06.206Z"
+    },
+    {
+      "id": "id-1787917266213-zbva6",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 36
+      },
+      "simulated_score": 94,
+      "score_delta": 23,
+      "carbon_saved_tons": 5.72,
+      "cost_savings_usd": 2142,
+      "created_at": "2026-08-28T11:41:06.213Z"
+    },
+    {
+      "id": "id-1787917266220-lz1w4",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 37
+      },
+      "simulated_score": 94,
+      "score_delta": 23,
+      "carbon_saved_tons": 5.72,
+      "cost_savings_usd": 2143,
+      "created_at": "2026-08-28T11:41:06.220Z"
+    },
+    {
+      "id": "id-1787917266227-frbqh",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 38
+      },
+      "simulated_score": 94,
+      "score_delta": 23,
+      "carbon_saved_tons": 5.73,
+      "cost_savings_usd": 2144,
+      "created_at": "2026-08-28T11:41:06.227Z"
+    },
+    {
+      "id": "id-1787917266234-9wadm",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 39
+      },
+      "simulated_score": 94,
+      "score_delta": 23,
+      "carbon_saved_tons": 5.74,
+      "cost_savings_usd": 2145,
+      "created_at": "2026-08-28T11:41:06.234Z"
+    },
+    {
+      "id": "id-1787917266241-1p3yk",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 40
+      },
+      "simulated_score": 94,
+      "score_delta": 23,
+      "carbon_saved_tons": 5.74,
+      "cost_savings_usd": 2146,
+      "created_at": "2026-08-28T11:41:06.241Z"
+    },
+    {
+      "id": "id-1787917266256-lq693",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 41
+      },
+      "simulated_score": 94,
+      "score_delta": 23,
+      "carbon_saved_tons": 5.75,
+      "cost_savings_usd": 2147,
+      "created_at": "2026-08-28T11:41:06.256Z"
+    },
+    {
+      "id": "id-1787917266269-ryqn8",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 42
+      },
+      "simulated_score": 94,
+      "score_delta": 23,
+      "carbon_saved_tons": 5.75,
+      "cost_savings_usd": 2148,
+      "created_at": "2026-08-28T11:41:06.269Z"
+    },
+    {
+      "id": "id-1787917266300-o0t13",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 44
+      },
+      "simulated_score": 95,
+      "score_delta": 24,
+      "carbon_saved_tons": 5.77,
+      "cost_savings_usd": 2150,
+      "created_at": "2026-08-28T11:41:06.300Z"
+    },
+    {
+      "id": "id-1787917266321-trx2l",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 47
+      },
+      "simulated_score": 95,
+      "score_delta": 24,
+      "carbon_saved_tons": 5.78,
+      "cost_savings_usd": 2153,
+      "created_at": "2026-08-28T11:41:06.321Z"
+    },
+    {
+      "id": "id-1787917266325-zkoq4",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 48
+      },
+      "simulated_score": 95,
+      "score_delta": 24,
+      "carbon_saved_tons": 5.79,
+      "cost_savings_usd": 2154,
+      "created_at": "2026-08-28T11:41:06.325Z"
+    },
+    {
+      "id": "id-1787917266339-7o6li",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 49
+      },
+      "simulated_score": 95,
+      "score_delta": 24,
+      "carbon_saved_tons": 5.8,
+      "cost_savings_usd": 2155,
+      "created_at": "2026-08-28T11:41:06.339Z"
+    },
+    {
+      "id": "id-1787917266345-beu31",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 50
+      },
+      "simulated_score": 95,
+      "score_delta": 24,
+      "carbon_saved_tons": 5.8,
+      "cost_savings_usd": 2156,
+      "created_at": "2026-08-28T11:41:06.345Z"
+    },
+    {
+      "id": "id-1787917266359-cppf3",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 51
+      },
+      "simulated_score": 95,
+      "score_delta": 24,
+      "carbon_saved_tons": 5.81,
+      "cost_savings_usd": 2157,
+      "created_at": "2026-08-28T11:41:06.359Z"
+    },
+    {
+      "id": "id-1787917266366-w6d1z",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 52
+      },
+      "simulated_score": 95,
+      "score_delta": 24,
+      "carbon_saved_tons": 5.81,
+      "cost_savings_usd": 2158,
+      "created_at": "2026-08-28T11:41:06.366Z"
+    },
+    {
+      "id": "id-1787917266397-pj0ur",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 53
+      },
+      "simulated_score": 95,
+      "score_delta": 24,
+      "carbon_saved_tons": 5.82,
+      "cost_savings_usd": 2159,
+      "created_at": "2026-08-28T11:41:06.397Z"
+    },
+    {
+      "id": "id-1787917266418-9rve5",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 54
+      },
+      "simulated_score": 95,
+      "score_delta": 24,
+      "carbon_saved_tons": 5.82,
+      "cost_savings_usd": 2160,
+      "created_at": "2026-08-28T11:41:06.418Z"
+    },
+    {
+      "id": "id-1787917266446-jfkw3",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 55
+      },
+      "simulated_score": 96,
+      "score_delta": 25,
+      "carbon_saved_tons": 5.83,
+      "cost_savings_usd": 2161,
+      "created_at": "2026-08-28T11:41:06.446Z"
+    },
+    {
+      "id": "id-1787917266450-keo9r",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 56
+      },
+      "simulated_score": 96,
+      "score_delta": 25,
+      "carbon_saved_tons": 5.84,
+      "cost_savings_usd": 2162,
+      "created_at": "2026-08-28T11:41:06.450Z"
+    },
+    {
+      "id": "id-1787917266482-wmvgc",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 57
+      },
+      "simulated_score": 96,
+      "score_delta": 25,
+      "carbon_saved_tons": 5.84,
+      "cost_savings_usd": 2163,
+      "created_at": "2026-08-28T11:41:06.482Z"
+    },
+    {
+      "id": "id-1787917266489-xtkva",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 58
+      },
+      "simulated_score": 96,
+      "score_delta": 25,
+      "carbon_saved_tons": 5.85,
+      "cost_savings_usd": 2164,
+      "created_at": "2026-08-28T11:41:06.489Z"
+    },
+    {
+      "id": "id-1787917266508-8gmhb",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 59
+      },
+      "simulated_score": 96,
+      "score_delta": 25,
+      "carbon_saved_tons": 5.86,
+      "cost_savings_usd": 2165,
+      "created_at": "2026-08-28T11:41:06.508Z"
+    },
+    {
+      "id": "id-1787917266537-lea5l",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 60
+      },
+      "simulated_score": 96,
+      "score_delta": 25,
+      "carbon_saved_tons": 5.86,
+      "cost_savings_usd": 2166,
+      "created_at": "2026-08-28T11:41:06.537Z"
+    },
+    {
+      "id": "id-1787917266542-ssv03",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 61
+      },
+      "simulated_score": 96,
+      "score_delta": 25,
+      "carbon_saved_tons": 5.87,
+      "cost_savings_usd": 2167,
+      "created_at": "2026-08-28T11:41:06.542Z"
+    },
+    {
+      "id": "id-1787917266547-65d1g",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 62
+      },
+      "simulated_score": 96,
+      "score_delta": 25,
+      "carbon_saved_tons": 5.87,
+      "cost_savings_usd": 2168,
+      "created_at": "2026-08-28T11:41:06.547Z"
+    },
+    {
+      "id": "id-1787917266554-p3re4",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 63
+      },
+      "simulated_score": 96,
+      "score_delta": 25,
+      "carbon_saved_tons": 5.88,
+      "cost_savings_usd": 2169,
+      "created_at": "2026-08-28T11:41:06.554Z"
+    },
+    {
+      "id": "id-1787917266568-amm0f",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 64
+      },
+      "simulated_score": 97,
+      "score_delta": 26,
+      "carbon_saved_tons": 5.88,
+      "cost_savings_usd": 2170,
+      "created_at": "2026-08-28T11:41:06.568Z"
+    },
+    {
+      "id": "id-1787917266575-c5ryn",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 66
+      },
+      "simulated_score": 97,
+      "score_delta": 26,
+      "carbon_saved_tons": 5.9,
+      "cost_savings_usd": 2172,
+      "created_at": "2026-08-28T11:41:06.575Z"
+    },
+    {
+      "id": "id-1787917266584-jdb8s",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 67
+      },
+      "simulated_score": 97,
+      "score_delta": 26,
+      "carbon_saved_tons": 5.9,
+      "cost_savings_usd": 2173,
+      "created_at": "2026-08-28T11:41:06.584Z"
+    },
+    {
+      "id": "id-1787917266591-r2xpb",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 68
+      },
+      "simulated_score": 97,
+      "score_delta": 26,
+      "carbon_saved_tons": 5.91,
+      "cost_savings_usd": 2174,
+      "created_at": "2026-08-28T11:41:06.591Z"
+    },
+    {
+      "id": "id-1787917266596-7sc6v",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 70
+      },
+      "simulated_score": 97,
+      "score_delta": 26,
+      "carbon_saved_tons": 5.92,
+      "cost_savings_usd": 2176,
+      "created_at": "2026-08-28T11:41:06.596Z"
+    },
+    {
+      "id": "id-1787917266603-mcgmd",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 71
+      },
+      "simulated_score": 97,
+      "score_delta": 26,
+      "carbon_saved_tons": 5.93,
+      "cost_savings_usd": 2177,
+      "created_at": "2026-08-28T11:41:06.603Z"
+    },
+    {
+      "id": "id-1787917266610-st63j",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 73
+      },
+      "simulated_score": 97,
+      "score_delta": 26,
+      "carbon_saved_tons": 5.94,
+      "cost_savings_usd": 2179,
+      "created_at": "2026-08-28T11:41:06.610Z"
+    },
+    {
+      "id": "id-1787917266617-eq60e",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 74
+      },
+      "simulated_score": 98,
+      "score_delta": 27,
+      "carbon_saved_tons": 5.94,
+      "cost_savings_usd": 2180,
+      "created_at": "2026-08-28T11:41:06.617Z"
+    },
+    {
+      "id": "id-1787917266624-htplz",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 76
+      },
+      "simulated_score": 98,
+      "score_delta": 27,
+      "carbon_saved_tons": 5.96,
+      "cost_savings_usd": 2182,
+      "created_at": "2026-08-28T11:41:06.624Z"
+    },
+    {
+      "id": "id-1787917266632-up2xv",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 77
+      },
+      "simulated_score": 98,
+      "score_delta": 27,
+      "carbon_saved_tons": 5.96,
+      "cost_savings_usd": 2183,
+      "created_at": "2026-08-28T11:41:06.632Z"
+    },
+    {
+      "id": "id-1787917266637-sboq6",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 78
+      },
+      "simulated_score": 98,
+      "score_delta": 27,
+      "carbon_saved_tons": 5.97,
+      "cost_savings_usd": 2184,
+      "created_at": "2026-08-28T11:41:06.637Z"
+    },
+    {
+      "id": "id-1787917266644-9a82e",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 79
+      },
+      "simulated_score": 98,
+      "score_delta": 27,
+      "carbon_saved_tons": 5.97,
+      "cost_savings_usd": 2185,
+      "created_at": "2026-08-28T11:41:06.644Z"
+    },
+    {
+      "id": "id-1787917266658-xkbmi",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 80
+      },
+      "simulated_score": 98,
+      "score_delta": 27,
+      "carbon_saved_tons": 5.98,
+      "cost_savings_usd": 2186,
+      "created_at": "2026-08-28T11:41:06.658Z"
+    },
+    {
+      "id": "id-1787917266665-buezp",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 82
+      },
+      "simulated_score": 98,
+      "score_delta": 27,
+      "carbon_saved_tons": 5.99,
+      "cost_savings_usd": 2188,
+      "created_at": "2026-08-28T11:41:06.665Z"
+    },
+    {
+      "id": "id-1787917266672-zj96k",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 84
+      },
+      "simulated_score": 98,
+      "score_delta": 27,
+      "carbon_saved_tons": 6,
+      "cost_savings_usd": 2190,
+      "created_at": "2026-08-28T11:41:06.672Z"
+    },
+    {
+      "id": "id-1787917266680-qob9b",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 87
+      },
+      "simulated_score": 99,
+      "score_delta": 28,
+      "carbon_saved_tons": 6.02,
+      "cost_savings_usd": 2193,
+      "created_at": "2026-08-28T11:41:06.680Z"
+    },
+    {
+      "id": "id-1787917266687-k1ibe",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 89
+      },
+      "simulated_score": 99,
+      "score_delta": 28,
+      "carbon_saved_tons": 6.03,
+      "cost_savings_usd": 2195,
+      "created_at": "2026-08-28T11:41:06.687Z"
+    },
+    {
+      "id": "id-1787917266695-1doth",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 91
+      },
+      "simulated_score": 99,
+      "score_delta": 28,
+      "carbon_saved_tons": 6.05,
+      "cost_savings_usd": 2197,
+      "created_at": "2026-08-28T11:41:06.695Z"
+    },
+    {
+      "id": "id-1787917266700-462b2",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 92
+      },
+      "simulated_score": 99,
+      "score_delta": 28,
+      "carbon_saved_tons": 6.05,
+      "cost_savings_usd": 2198,
+      "created_at": "2026-08-28T11:41:06.700Z"
+    },
+    {
+      "id": "id-1787917266707-cxotr",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 94
+      },
+      "simulated_score": 100,
+      "score_delta": 29,
+      "carbon_saved_tons": 6.06,
+      "cost_savings_usd": 2200,
+      "created_at": "2026-08-28T11:41:06.707Z"
+    },
+    {
+      "id": "id-1787917266714-ehn3i",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 95
+      },
+      "simulated_score": 100,
+      "score_delta": 29,
+      "carbon_saved_tons": 6.07,
+      "cost_savings_usd": 2201,
+      "created_at": "2026-08-28T11:41:06.714Z"
+    },
+    {
+      "id": "id-1787917266721-86cpg",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 97
+      },
+      "simulated_score": 100,
+      "score_delta": 29,
+      "carbon_saved_tons": 6.08,
+      "cost_savings_usd": 2203,
+      "created_at": "2026-08-28T11:41:06.721Z"
+    },
+    {
+      "id": "id-1787917266735-v4z7n",
+      "org_id": "11111111-1111-1111-1111-111111111111",
+      "input_params_json": {
+        "solarPercent": 100,
+        "waterRecyclePercent": 100,
+        "wasteDiversionPercent": 100
+      },
+      "simulated_score": 100,
+      "score_delta": 29,
+      "carbon_saved_tons": 6.1,
+      "cost_savings_usd": 2206,
+      "created_at": "2026-08-28T11:41:06.735Z"
+    }
+  ]
+}
