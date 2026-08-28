@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams, Link } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, Zap, Droplets, Trash2, HelpCircle, CheckCircle2, ShieldAlert, Cpu, Sparkles } from 'lucide-react';
 import { getSurveySession, submitSurveyAnswer } from '../services/apiClient';
+import { FALLBACK_SURVEY_QUESTIONS } from '../data/surveyQuestions';
 import PageIntro from '../components/PageIntro';
 import { useWorkspace } from '../context/WorkspaceContext';
 
@@ -30,16 +31,27 @@ export default function Survey() {
       setLoading(true);
       try {
         const res = await getSurveySession(moduleKey);
-        if (res.success) {
-          setSession(res.session);
-          window.localStorage.setItem('ecomindSurveySessionId', res.session.id);
+        if (res && res.success && res.currentQuestion) {
+          setSession(res.session || { id: `session-${Date.now()}`, module_key: moduleKey });
+          if (res.session?.id) {
+            window.localStorage.setItem('ecomindSurveySessionId', res.session.id);
+          }
           setCurrentQuestion(res.currentQuestion);
           setSelectedOption(res.currentQuestion?.options[0]?.value || '');
           setQuestionHistory([]);
           setIsCompleted(false);
+        } else {
+          throw new Error('No question returned from server');
         }
       } catch (err) {
-        console.error(err);
+        console.warn('[Survey] Backend unavailable or failed, initializing local survey branch:', err);
+        const fallbackQuestions = FALLBACK_SURVEY_QUESTIONS[moduleKey] || FALLBACK_SURVEY_QUESTIONS.energy;
+        const firstQ = fallbackQuestions[0];
+        setSession({ id: `local-${moduleKey}-${Date.now()}`, module_key: moduleKey, isLocal: true });
+        setCurrentQuestion(firstQ);
+        setSelectedOption(firstQ?.options[0]?.value || '');
+        setQuestionHistory([]);
+        setIsCompleted(false);
       } finally {
         setLoading(false);
       }
@@ -48,21 +60,49 @@ export default function Survey() {
   }, [moduleKey]);
 
   const handleNext = async () => {
-    if (!session || !currentQuestion || !selectedOption) return;
+    if (!currentQuestion || !selectedOption) return;
     setLoading(true);
     try {
       setQuestionHistory((prev) => [...prev, { question: currentQuestion, selected: selectedOption }]);
       setTotalAnswered((prev) => prev + 1);
-      const res = await submitSurveyAnswer(session.id, currentQuestion.id, selectedOption);
-      if (res.isComplete) {
-        setIsCompleted(true);
-        notify(`${moduleKey.toUpperCase()} operational diagnosis completed!`);
-      } else if (res.nextQuestion) {
-        setCurrentQuestion(res.nextQuestion);
-        setSelectedOption(res.nextQuestion.options?.[0]?.value || '');
+
+      if (session?.isLocal) {
+        // Handle local step progression
+        const fallbackQuestions = FALLBACK_SURVEY_QUESTIONS[moduleKey] || FALLBACK_SURVEY_QUESTIONS.energy;
+        const currentIndex = fallbackQuestions.findIndex((q) => q.id === currentQuestion.id);
+        if (currentIndex !== -1 && currentIndex < fallbackQuestions.length - 1) {
+          const nextQ = fallbackQuestions[currentIndex + 1];
+          setCurrentQuestion(nextQ);
+          setSelectedOption(nextQ.options?.[0]?.value || '');
+        } else {
+          setIsCompleted(true);
+          notify(`${moduleKey.toUpperCase()} operational diagnosis completed!`);
+        }
+      } else {
+        const res = await submitSurveyAnswer(session.id, currentQuestion.id, selectedOption);
+        if (res.isComplete) {
+          setIsCompleted(true);
+          notify(`${moduleKey.toUpperCase()} operational diagnosis completed!`);
+        } else if (res.nextQuestion) {
+          setCurrentQuestion(res.nextQuestion);
+          setSelectedOption(res.nextQuestion.options?.[0]?.value || '');
+        } else {
+          setIsCompleted(true);
+          notify(`${moduleKey.toUpperCase()} operational diagnosis completed!`);
+        }
       }
     } catch (err) {
-      console.error(err);
+      console.warn('[Survey] Error in submitSurveyAnswer, falling back locally:', err);
+      const fallbackQuestions = FALLBACK_SURVEY_QUESTIONS[moduleKey] || FALLBACK_SURVEY_QUESTIONS.energy;
+      const currentIndex = fallbackQuestions.findIndex((q) => q.id === currentQuestion.id);
+      if (currentIndex !== -1 && currentIndex < fallbackQuestions.length - 1) {
+        const nextQ = fallbackQuestions[currentIndex + 1];
+        setCurrentQuestion(nextQ);
+        setSelectedOption(nextQ.options?.[0]?.value || '');
+      } else {
+        setIsCompleted(true);
+        notify(`${moduleKey.toUpperCase()} operational diagnosis completed!`);
+      }
     } finally {
       setLoading(false);
     }
